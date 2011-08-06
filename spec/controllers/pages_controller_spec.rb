@@ -22,8 +22,8 @@ describe PagesController do
     it "should display the logo" do
       get 'home'
       File.exists? "/images/stkup_logo.png"
-      # response.should have_selector("img",
-      #                               :content => "/images/logo.png")
+      # response.should have_tag('img[src=?]',
+      #                          /\/images\/stkup_logo.png\S*/)
     end
   end
 
