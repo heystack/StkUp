@@ -18,6 +18,13 @@ describe PagesController do
       response.should have_selector("title",
                                     :content => @base_title + " | Home")
     end
+
+    it "should display the logo" do
+      get 'home'
+      File.exists? "/images/stkup_logo.png"
+      # response.should have_selector("img",
+      #                               :content => "/images/logo.png")
+    end
   end
 
   describe "GET 'contact'" do
