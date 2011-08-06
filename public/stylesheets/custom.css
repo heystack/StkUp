@@ -3,7 +3,7 @@
 }
 
 body {
-  background: #f0f0f0;
+  background: #eee;
 }
 
 header {
@@ -12,7 +12,7 @@ header {
 
 header img {
   padding: 1em;
-  background: #fff;
+  background: #eee;
 }
 
 section {
