@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/michelson/lazy_high_charts.git
+  revision: 2f5e67bf63e145ee66d310ca8cfcadc576bea868
+  specs:
+    lazy_high_charts (1.0.8)
+      bundler (~> 1.0)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -112,6 +119,7 @@ DEPENDENCIES
   autotest-rails-pure (= 4.1.2)
   factory_girl_rails (= 1.0)
   gravatar_image_tag (= 1.0.0.pre2)
+  lazy_high_charts!
   rails (= 3.0.9)
   rspec-rails (= 2.6.1)
   sqlite3 (= 1.3.3)
