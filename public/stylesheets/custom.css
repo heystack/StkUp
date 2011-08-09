@@ -78,6 +78,19 @@ nav ul li a:hover {
   text-decoration: underline;
 }
 
+/* Home Page Elements */
+
+div.tagline {
+  padding-top: 2em;
+  width: 100%;
+  text-align: center;
+  color: #aaa;
+}
+
+.tagline.tagem {
+  color: MistyRose;
+}
+
 /* Sign up button */
 
 a.signup_button {
