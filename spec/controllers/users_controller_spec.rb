@@ -268,7 +268,7 @@ describe UsersController do
       end
     end  
   end
-  
+
   describe "DELETE 'destroy'" do
 
     before(:each) do
@@ -308,5 +308,5 @@ describe UsersController do
         response.should redirect_to(users_path)
       end
     end
-  end
+  end  
 end
