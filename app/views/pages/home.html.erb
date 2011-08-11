@@ -1,9 +1,25 @@
-<p>
-  <%= render 'layouts/madlibs' %>
-</p>
+<% if signed_in? %>
+  <table class="front" summary="For signed-in users">
+    <tr>
+      <td class="main">
+        <h1 class="question">Stack of the Day</h1>
+        <h2 class="question">How much do you pay your babysitter?</h1>
+        <%= render 'shared/answer_form' %>
+        <%= render 'shared/feed' %>
+      </td>
+      <td class="sidebar round">
+        <%= render 'shared/user_info' %>
+      </td>
+    </tr>
+  </table>
+<% else %>
+  <p>
+    <%= render 'layouts/madlibs' %>
+  </p>
 
-<%= link_to "Stack Me Up!", signup_path, :class => "signup_button round" %>
+  <%= link_to "Stack Me Up!", signup_path, :class => "signup_button round" %>
 
-<div class="tagline">
-  Simple Purposeful Comparisons
-</div>
+  <div class="tagline">
+    Simple Purposeful Comparisons
+  </div>
+<% end %>

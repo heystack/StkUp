@@ -21,6 +21,12 @@ namespace :db do
                    :password => password,
                    :password_confirmation => password)
     end
+    
+    User.all(:limit => 6).each do |user|
+      50.times do
+        user.answers.create!(:stack_id => rand(10), :choice_id => rand(50))
+      end
+    end
   end
 end
 

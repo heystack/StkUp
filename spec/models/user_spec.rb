@@ -149,4 +149,46 @@ describe User do
       @user.should be_admin
     end
   end
+  
+  describe "answer associations" do
+
+    before(:each) do
+      @user = User.create(@attr)
+      @a1 = Factory(:answer, :user => @user, :created_at => 1.day.ago)
+      @a2 = Factory(:answer, :user => @user, :created_at => 1.hour.ago)
+    end
+
+    it "should have an answers attribute" do
+      @user.should respond_to(:answers)
+    end
+
+    it "should have the right answers in the right order" do
+      @user.answers.should == [@a2, @a1]
+    end
+    
+    it "should *not* destroy associated answers" do
+       @user.destroy
+       [@a1, @a2].each do |answer|
+         Answer.find_by_id(answer.id).should_not be_nil
+       end
+     end
+     
+     describe "status feed" do
+
+       it "should have a feed" do
+         @user.should respond_to(:feed)
+       end
+
+       it "should include the user's answers" do
+         @user.feed.include?(@a1).should be_true
+         @user.feed.include?(@a2).should be_true
+       end
+
+       it "should not include a different user's microposts" do
+         a3 = Factory(:answer,
+                      :user => Factory(:user, :email => Factory.next(:email)))
+         @user.feed.include?(a3).should be_false
+       end
+     end
+  end
 end

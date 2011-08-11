@@ -10,6 +10,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @answers = @user.answers.paginate(:page => params[:page])
     @title = @user.name
 
     @chart = LazyHighCharts::HighChart.new('graph') do |f|
@@ -80,10 +81,6 @@ class UsersController < ApplicationController
   end
   
   private
-
-    def authenticate
-      deny_access unless signed_in?
-    end
 
     def correct_user
       @user = User.find(params[:id])

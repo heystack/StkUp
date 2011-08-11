@@ -1,0 +1,17 @@
+<tr>
+  <td class="answer">
+    <span class="stack"><%= answer.stack_id %></span>
+    <span class="choice"><%= answer.choice_id %></span>
+    <span class="timestamp">
+      Answered <%= time_ago_in_words(answer.created_at) %> ago.
+    </span>
+  </td>
+  <% if current_user?(answer.user) %>
+  <td>
+    <%= link_to "delete", answer, :method => :delete,
+                                  :confirm => "You sure?",
+                                  :title => answer.choice_id %>
+  </td>
+  <% end %>
+</tr>
+

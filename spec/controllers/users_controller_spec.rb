@@ -85,6 +85,16 @@ describe UsersController do
       get :show, :id => @user
       response.should have_selector("h1>img", :class => "gravatar")
     end
+    
+    it "should show the user's answers" do
+      a1 = Factory(:answer, :user => @user, :choice_id => "15", :stack_id => "1")
+      a2 = Factory(:answer, :user => @user, :choice_id => "25", :stack_id => "2")
+      get :show, :id => @user
+      # response.should have_selector("span.stack",   :content => a1.stack_id)
+      # response.should have_selector("span.choice",  :content => a1.choice_id)
+      # response.should have_selector("span.stack",   :content => a2.stack_id)
+      # response.should have_selector("span.choice",  :content => a2.choice_id)
+    end
   end
   
   describe "GET 'new'" do

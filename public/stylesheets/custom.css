@@ -208,3 +208,72 @@ ul.users {
 .users li {
   list-style: none;
 }
+
+/* User Answers */
+
+h1.answer {
+  margin-bottom: 0.3em;
+}
+
+table.answers {
+  margin-top: 1em;
+}
+
+table.answers tr {
+  height: 70px;
+}
+
+table.answers tr td.gravatar {
+  border-top: 1px solid #ccc;
+  vertical-align: top;
+  width: 50px;
+}
+
+table.answers tr td.answer {
+  border-top: 1px solid #ccc;
+  vertical-align: top;
+  padding-top: 10px;
+}
+
+table.answers tr td.answer span.stack {
+  display: block;
+  font-size: 200%;
+  color: Red;
+}
+
+table.answers tr td.answer span.choice {
+  display: block;
+  font-size: 150%;
+  color: Green;
+}
+
+table.answers tr td.answer span.timestamp {
+  display: block;
+  font-size: 85%;
+  color: #666;
+}
+
+div.user_info img {
+  padding-right: 0.1em;
+}
+
+div.user_info a {
+  text-decoration: none;
+}
+
+div.user_info span.user_name {
+  position: absolute;
+}
+
+div.user_info span.answers {
+  font-size: 80%;
+}
+
+form.new_answer {
+  margin-bottom: 2em;
+}
+
+form.new_answer textarea {
+  height: 4em;
+  margin-bottom: 0;
+}
