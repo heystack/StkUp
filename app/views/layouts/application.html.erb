@@ -2,13 +2,10 @@
 <html>
   <head>
     <title><%= title %></title>
-	<!-- Include Ajax and Highcharts js -->
-	<%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" %>
-	<%= javascript_include_tag "highcharts" %>
-	<!--[if IE]> <%= javascript_include_tag 'excanvas.compiled' %> <![endif]-->
+    <%= javascript_include_tag :defaults %>
+	<%= render 'layouts/chartincludes' %>
     <%= csrf_meta_tag %>
     <%= render 'layouts/stylesheets' %>
-    <%= javascript_include_tag :defaults %>
   </head>
   <body>
     <div class="container">

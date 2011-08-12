@@ -211,6 +211,18 @@ ul.users {
 
 /* User Answers */
 
+h1.question {
+  margin-bottom: 0.3em;
+  font-size: 200%;
+}
+
+h2.question {
+  margin-bottom: 0.3em;
+  font-size: 100%;
+}
+
+/* User Answers */
+
 h1.answer {
   margin-bottom: 0.3em;
 }
