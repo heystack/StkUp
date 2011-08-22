@@ -7,7 +7,8 @@ class Answer < ActiveRecord::Base
   validates :stack_id,  :presence => true
   validates :user_id,   :presence => true
 
-  default_scope :order => 'answers.created_at DESC'
+  # Following line caused error on heroku: ERROR:  column "answers.created_at" must appear in the GROUP BY clause...
+  # default_scope :order => 'answers.created_at DESC'
 
   # ToDo: How do I get total_for into Answer instead of User class
   def total_for(choice_id)
