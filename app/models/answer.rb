@@ -8,4 +8,10 @@ class Answer < ActiveRecord::Base
   validates :user_id,   :presence => true
 
   default_scope :order => 'answers.created_at DESC'
+
+  # ToDo: How do I get total_for into Answer instead of User class
+  def total_for(choice_id)
+    where("choice_id = ?", choice_id).count(:choice_id)
+  end
+  
 end

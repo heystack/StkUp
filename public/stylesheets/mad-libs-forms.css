@@ -43,3 +43,15 @@ td.madlibs-content {
 	opacity: .7;
 	filter: alpha(opacity = 70);
 }
+.mad-libs input.submit_button {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  text-align: center;
+  width: 190px;
+  color: #fff;
+  background: #006400;
+  font-size: 100%;
+  font-weight: bold;
+  padding: 20px;
+}

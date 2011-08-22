@@ -212,11 +212,13 @@ ul.users {
 /* User Answers */
 
 h1.question {
+  text-align: center;
   margin-bottom: 0.3em;
   font-size: 200%;
 }
 
 h2.question {
+  text-align: center;
   margin-bottom: 0.3em;
   font-size: 100%;
 }

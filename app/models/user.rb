@@ -38,6 +38,24 @@ class User < ActiveRecord::Base
     Answer.where("user_id = ?", id)
   end
   
+  def my_answers
+    # Same as 'feed' for now
+    Answer.where("user_id = ?", id)
+  end
+  
+  def grouped_answers(stk)
+    Answer.group("CAST(choice_id as text)").where("stack_id = ?", stk).count
+  end
+  
+  # distinct_answers and total_for are experiments with ActiveRecord queries
+  def distinct_answers
+    Answer.select("DISTINCT(choice_id)")
+  end
+  
+  def total_for(choice_id)
+    Answer.where("choice_id = ?", choice_id).count(:choice_id)
+  end
+  
   private
   
     def encrypt_password

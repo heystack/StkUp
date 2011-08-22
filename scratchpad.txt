@@ -1,0 +1,107 @@
+<table>
+<tr><td>Answers.choice_id:</td><td><%= @answers.map { |a| a.choice_id}.inspect %></td></tr>
+<tr><td>grouped_answers.map:</td><td><%= @grouped_answers.map { |a| a.inspect } %></td></tr>
+<tr><td>grouped_answers.collect:</td><td><%= @grouped_answers.collect { |k, v| "#{k}, #{v}"}.join %></td></tr>
+<tr><td>data_rows.inspect:</td><td><%= @data_rows.inspect %></td></tr>
+</table>
+
+from pages_controller.rb:
+@data_rows = Array.new
+@distinct_answers.map do |da|
+  @data_rows.push([
+    da.choice_id.to_s,
+    current_user.total_for(da.choice_id)
+  ])
+end
+
+in VIEW (home.html.erb):
+<tr><td>data_rows.inspect:</td><td><%= @data_rows.inspect %></td></tr>
+
+HIGHCHARTS in pages_controller.rb:
+@chart = LazyHighCharts::HighChart.new('graph') do |f|
+  f.title({ :text=>"Combination chart"})
+  f.options[:x_axis][:categories] = ['Apples', 'Oranges', 'Pears', 'Bananas', 'Plums']
+  f.labels(:items=>[:html=>"Total fruit consumption", :style=>{:left=>"40px", :top=>"8px", :color=>"black"} ])      
+  f.series(:type=> 'column',:name=> 'Jane',:data=> [3, 2, 1, 3, 4])
+  f.series(:type=> 'column',:name=> 'John',:data=> [2, 3, 5, 7, 6])
+  f.series(:type=> 'column', :name=> 'Joe',:data=> [4, 3, 3, 9, 0])
+  f.series(:type=> 'column', :name=> 'Joe',:data=> [4, 3, 3, 9, 0])
+  f.series(:type=> 'spline',:name=> 'Average', :data=> [3, 2.67, 3, 6.33, 3.33])
+  f.series(:type=> 'pie',:name=> 'Total consumption', 
+    :data=> [
+      {:name=> 'Jane', :y=> 13, :color=> 'red'}, 
+      {:name=> 'John', :y=> 23,:color=> 'green'},
+      {:name=> 'Joe', :y=> 19,:color=> 'blue'}
+    ],
+    :center=> [100, 80], :size=> 100, :showInLegend=> false)
+end
+
+in VIEW:
+<script type="text/javascript" charset="utf-8">
+  $(function() {
+	new Highcharts.Chart({
+	  chart: {
+		renderTo: "highchart"
+	  },
+	  title: {
+		text: "Stack Data"
+	  },
+	  series: [{
+		type: 'pie',
+        data: <%= @hc_series2.inspect %>
+	  }]
+	})
+  });
+</script>
+
+<div id="highchart" style="width:500px; height:400px;">
+
+_answer_form.html.erb:
+<%= form_for @answer do |f| %>
+  <%= render 'shared/error_messages', :object => f.object %>
+  <!-- <div class="field">
+    <%= f.hidden_field :stack_id, :value => "1" %><br/>
+    <%= f.label :choice_id %>
+    <%= f.text_field :choice_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Submit" %>
+  </div> -->
+
+  <div class="mad-libs">
+	<table>
+	  <tr>
+	    <td style="vertical-align:top"><div class="begin-quote">&#8220;</div></td>
+	    <td class="madlibs-content round">
+	    I pay my babysitter
+	    <%= f.hidden_field :stack_id, :value => "1" %>
+	    <%= f.select :choice_id,
+					 [
+					   ["less than $10", 10],
+					   ["$10-$15", 12],
+					   ["more than $15", 20]
+					 ]
+		%>
+	    <!-- <label>
+			<select name="stkup_response_34536">
+			<option value="1">less than $10</option>
+			<option value="2" selected="selected">$10-$15</option>
+			<option value="3">more than $15</option>
+			<option value="4">a different amount of</option>
+			</select>
+	    </label> -->
+	    dollars per hour
+	<!-- , and I live in the 
+	    <label>
+	      <input type="text" name="zip" value="" />
+	      <span>zip code</span>
+	    </label>
+		area. -->
+	    </td>
+	    <td style="vertical-align:bottom"><div class="end-quote">&#8221;</div></td>
+	  </tr>
+	</table>
+    <%= f.submit "Stack Me Up", :class => "submit_button round" %>
+  </div>
+<% end %>
+

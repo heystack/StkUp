@@ -1,0 +1,38 @@
+<script type="text/javascript">
+
+  // Load the Visualization API and the piechart package.
+  google.load('visualization', '1.0', {'packages':['corechart', 'table']});
+
+  // Set a callback to run when the Google Visualization API is loaded.
+  google.setOnLoadCallback(drawChart);
+
+  // Callback that creates and populates a data table, 
+  // instantiates the pie chart, passes in the data and
+  // draws it.
+  function drawChart() {
+
+	  // Create the data table.
+	  var data = new google.visualization.DataTable();
+	  data.addColumn('string', 'Choice');
+	  data.addColumn('number', 'Count');
+
+	  // raw required so quotes are not escaped
+	  data.addRows([<%=raw @grouped_answers.map { |a| a.inspect }.join(',') %>]);
+
+	  // Set chart options
+	  var options = {'title':'How Much Do You Pay Your Babysitter?',
+	                 'width':500,
+	                 'height':400};
+
+	  // Instantiate and draw our chart, passing in some options.
+	  var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+	  chart.draw(data, options);
+	  var table = new google.visualization.Table(document.getElementById('table_div'));
+	  table.draw(data);
+  }
+</script>
+
+<!--Div that will hold chart-->
+<div id="chart_div"></div><br/>
+<div id="table_div"></div><br/>
+

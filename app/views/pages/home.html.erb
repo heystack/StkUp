@@ -3,7 +3,6 @@
     <tr>
       <td class="main">
         <h1 class="question">Stack of the Day</h1>
-        <h2 class="question">How much do you pay your babysitter?</h1>
         <%= render 'shared/answer_form' %>
         <% # render 'shared/feed' %>
       </td>
@@ -12,6 +11,8 @@
       </td>
     </tr>
   </table>
+  <%= render 'shared/stkchart_pie' %>
+
 <% else %>
   <p>
     <%= render 'layouts/madlibs' %>
@@ -24,40 +25,3 @@
   </div>
 <% end %>
 
-<script type="text/javascript">
-
-  // Load the Visualization API and the piechart package.
-  google.load('visualization', '1.0', {'packages':['corechart']});
-
-  // Set a callback to run when the Google Visualization API is loaded.
-  google.setOnLoadCallback(drawChart);
-
-  // Callback that creates and populates a data table, 
-  // instantiates the pie chart, passes in the data and
-  // draws it.
-  function drawChart() {
-
-	  // Create the data table.
-	  var data = new google.visualization.DataTable();
-	  data.addColumn('string', 'Rate');
-	  data.addColumn('number', 'Responses');
-	  data.addRows([
-	    ['Less than $10/hr', 1],
-	    ['$10-$15', 3],
-	    ['More than $15/hr', 1], 
-	    ['Depends', 1],
-	  ]);
-
-	  // Set chart options
-	  var options = {'title':'How Much Do You Pay Your Babysitter?',
-	                 'width':500,
-	                 'height':400};
-
-	  // Instantiate and draw our chart, passing in some options.
-	  var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
-	  chart.draw(data, options);
-  }
-</script>
-
-<!--Div that will hold chart-->
-<div id="chart_div"></div>

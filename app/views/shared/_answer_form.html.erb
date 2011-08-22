@@ -1,11 +1,48 @@
 <%= form_for @answer do |f| %>
   <%= render 'shared/error_messages', :object => f.object %>
-  <div class="field">
-    <%= f.text_area :stack_id %>
-    <%= f.text_area :choice_id %>
+  <!-- <div class="field">
+    <%= f.hidden_field :stack_id, :value => "1" %><br/>
+    <%= f.label :choice_id %>
+    <%= f.text_field :choice_id %>
   </div>
   <div class="actions">
     <%= f.submit "Submit" %>
+  </div> -->
+
+  <div class="mad-libs">
+	<table>
+	  <tr>
+	    <td style="vertical-align:top"><div class="begin-quote">&#8220;</div></td>
+	    <td class="madlibs-content round">
+	    I pay my babysitter
+	    <%= f.hidden_field :stack_id, :value => "1" %>
+	    <%= f.select :choice_id,
+					 [
+					   ["less than $10", 10],
+					   ["$10-$15", 12],
+					   ["more than $15", 20]
+					 ]
+		%>
+	    <!-- <label>
+			<select name="stkup_response_34536">
+			<option value="1">less than $10</option>
+			<option value="2" selected="selected">$10-$15</option>
+			<option value="3">more than $15</option>
+			<option value="4">a different amount of</option>
+			</select>
+	    </label> -->
+	    dollars per hour
+	<!-- , and I live in the 
+	    <label>
+	      <input type="text" name="zip" value="" />
+	      <span>zip code</span>
+	    </label>
+		area. -->
+	    </td>
+	    <td style="vertical-align:bottom"><div class="end-quote">&#8221;</div></td>
+	  </tr>
+	</table>
+    <%= f.submit "Stack Me Up", :class => "submit_button round" %>
   </div>
 <% end %>
 
