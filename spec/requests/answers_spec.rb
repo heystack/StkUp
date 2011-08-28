@@ -36,8 +36,9 @@ describe "Answers" do
           fill_in :answer_stack_id, :with => stack_id
           fill_in :answer_choice_id, :with => choice_id
           click_button
-          response.should have_selector("span.stack",  :content => stack_id)
-          response.should have_selector("span.choice", :content => choice_id)
+          response.should have_selector("div#chart_div")
+          # response.should have_selector("span.stack",  :content => stack_id)
+          # response.should have_selector("span.choice", :content => choice_id)
         end.should change(Answer, :count).by(1)
       end
     end

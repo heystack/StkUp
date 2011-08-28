@@ -162,9 +162,10 @@ describe User do
       @user.should respond_to(:answers)
     end
 
-    it "should have the right answers in the right order" do
-      @user.answers.should == [@a2, @a1]
-    end
+    # Default scope removed from answer.rb model because of issue with group_by query in Heroku
+    # it "should have the right answers in the right order" do
+    #   @user.answers.should == [@a2, @a1]
+    # end
     
     it "should *not* destroy associated answers" do
        @user.destroy
@@ -184,7 +185,7 @@ describe User do
          @user.feed.include?(@a2).should be_true
        end
 
-       it "should not include a different user's microposts" do
+       it "should not include a different user's answers" do
          a3 = Factory(:answer,
                       :user => Factory(:user, :email => Factory.next(:email)))
          @user.feed.include?(a3).should be_false

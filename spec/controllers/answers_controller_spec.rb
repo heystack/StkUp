@@ -25,17 +25,18 @@ describe AnswersController do
     describe "failure" do
 
       before(:each) do
-        @attr = { :stack_id => "", :choice_id => "" }
+        @attr_success = { :stack_id => "1", :choice_id => "15" }
+        @attr_fail = { :stack_id => "", :choice_id => "" }
       end
 
       it "should not create an answer" do
         lambda do
-          post :create, :answer => @attr
+          post :create, :answer => @attr_fail
         end.should_not change(Answer, :count)
       end
 
       it "should render the home page" do
-        post :create, :answer => @attr
+        post :create, :answer => @attr_fail
         response.should render_template('pages/home')
       end
     end
@@ -46,7 +47,7 @@ describe AnswersController do
         @attr = { :stack_id => "1", :choice_id => "15" }
       end
 
-      it "should create a micropost" do
+      it "should create an answer" do
         lambda do
           post :create, :answer => @attr
         end.should change(Answer, :count).by(1)

@@ -11,7 +11,9 @@
       </td>
     </tr>
   </table>
-  <%= render 'shared/stkchart_pie' %>
+  <% if Answer.count != 0 %>
+	<%= render 'shared/stkchart_pie' %>
+  <% end %>
 
 <% else %>
   <p>

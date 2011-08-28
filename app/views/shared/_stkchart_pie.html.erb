@@ -20,9 +20,14 @@
 	  data.addRows([<%=raw @grouped_answers.map { |a| a.inspect }.join(',') %>]);
 
 	  // Set chart options
-	  var options = {'title':'How Much Do You Pay Your Babysitter?',
-	                 'width':500,
-	                 'height':400};
+	  var options = {
+		'title':'How Much Do You Pay Your Babysitter?',
+	    'width':500,
+	    'height':400,
+		'colors': ['grey','grey','grey','red','grey','grey'],
+		'pieSliceText': 'label',
+		'legend': 'none'
+	  };
 
 	  // Instantiate and draw our chart, passing in some options.
 	  var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
