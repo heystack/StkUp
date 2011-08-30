@@ -41,8 +41,8 @@ end
 
 def make_interests
   99.times do |n|
-    interest_desc  = Faker::Lorem.words(1)
-    Interest.create!(:interest_desc => interest_desc)
+    interest_desc = Faker::Company.bs
+    Interest.create!(:interest_id => n, :interest_desc => interest_desc)
   end
 end
 

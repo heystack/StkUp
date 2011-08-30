@@ -1,5 +1,5 @@
 class Interest < ActiveRecord::Base
-  attr_accessible :interest_id
+  attr_accessible :interest_id, :interest_desc
 
   has_many :reverse_interests, :foreign_key => "interest_id",
                                :class_name => "UserInterest",
