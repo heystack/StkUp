@@ -15,3 +15,7 @@ Factory.define :answer do |a|
   a.choice_id "15"
   a.association :user
 end
+
+Factory.define :interest do |interest|
+  interest.interest_desc    "Parenting"
+end

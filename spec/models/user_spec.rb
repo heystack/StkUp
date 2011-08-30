@@ -192,4 +192,44 @@ describe User do
        end
      end
   end
+  
+  describe "user interests" do
+
+    before(:each) do
+      @user = User.create!(@attr)
+      @interest = Factory(:interest)
+    end
+
+    it "should have a interests method" do
+      @user.should respond_to(:interests)
+    end
+
+    it "should have a interested_in? method" do
+      @user.should respond_to(:interested_in?)
+    end
+
+    it "should have a interested_in! method" do
+      @user.should respond_to(:interested_in!)
+    end
+
+    it "should be interested in" do
+      @user.interested_in!(@interest)
+      @user.should be_interested_in(@interest)
+    end
+
+    it "should include the interest in the following array" do
+      @user.interested_in!(@interest)
+      @user.interests.should include(@interest)
+    end
+
+    it "should have a not_interested_in! method" do
+      @user.should respond_to(:not_interested_in!)
+    end
+
+    it "should not be interested in" do
+      @user.interested_in!(@interest)
+      @user.not_interested_in!(@interest)
+      @user.should_not be_interested_in(@interest)
+    end
+  end
 end

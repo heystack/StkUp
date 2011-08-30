@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
   attr_accessible :name, :email, :password, :password_confirmation
 
   has_many :answers # No :dependent => :destroy (Answers survive user destroy)
+  has_many :user_interests, :dependent => :destroy
+  has_many :interests, :through => :user_interests
   
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   
@@ -55,7 +57,20 @@ class User < ActiveRecord::Base
   def total_for(choice_id)
     Answer.where("choice_id = ?", choice_id).count(:choice_id)
   end
+
+  # interests through the user_interests association
+  def interested_in?(interest)
+    self.user_interests.find_by_interest_id(interest)
+  end
+
+  def interested_in!(interest)
+    self.user_interests.create!(:interest_id => interest.id)
+  end
   
+  def not_interested_in!(interest)
+    self.user_interests.find_by_interest_id(interest).destroy
+  end
+
   private
   
     def encrypt_password

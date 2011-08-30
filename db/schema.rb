@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110811020054) do
+ActiveRecord::Schema.define(:version => 20110828181021) do
 
   create_table "answers", :force => true do |t|
     t.integer  "user_id"
@@ -22,6 +22,26 @@ ActiveRecord::Schema.define(:version => 20110811020054) do
 
   add_index "answers", ["stack_id"], :name => "index_answers_on_stack_id"
   add_index "answers", ["user_id"], :name => "index_answers_on_user_id"
+
+  create_table "interests", :force => true do |t|
+    t.integer  "interest_id"
+    t.string   "interest_desc"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "interests", ["interest_id"], :name => "index_interests_on_interest_id"
+
+  create_table "user_interests", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "interest_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "user_interests", ["interest_id"], :name => "index_user_interests_on_interest_id"
+  add_index "user_interests", ["user_id", "interest_id"], :name => "index_user_interests_on_user_id_and_interest_id", :unique => true
+  add_index "user_interests", ["user_id"], :name => "index_user_interests_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "name"
