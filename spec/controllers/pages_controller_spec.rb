@@ -8,22 +8,44 @@ describe PagesController do
   end
 
   describe "GET 'home'" do
-    it "should be successful" do
-      get 'home'
-      response.should be_success
-    end
+
+    describe "when not signed in" do
+
+      before(:each) do
+        get :home
+      end
+
+      it "should be successful" do
+        response.should be_success
+      end
     
-    it "should have the right title" do
-      get 'home'
-      response.should have_selector("title",
-                                    :content => @base_title + " | Home")
+      it "should have the right title" do
+        get 'home'
+        response.should have_selector("title",
+                                      :content => @base_title + " | Home")
+      end
+
+      it "should display the logo" do
+        get 'home'
+        File.exists? "/images/stkup_logo.png"
+        # response.should have_tag('img[src=?]',
+        #                          /\/images\/stkup_logo.png\S*/)
+      end
     end
 
-    it "should display the logo" do
-      get 'home'
-      File.exists? "/images/stkup_logo.png"
-      # response.should have_tag('img[src=?]',
-      #                          /\/images\/stkup_logo.png\S*/)
+    describe "when signed in" do
+
+      before(:each) do
+        @user = test_sign_in(Factory(:user))
+        @interest = Factory(:interest)
+        @user.interested_in!(@interest)
+      end
+
+      it "should have the right interested_in counts" do
+        get :home
+        response.should have_selector("a", :href => interests_user_path(@user),
+                                           :content => "1 interest")
+      end
     end
   end
 

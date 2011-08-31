@@ -1,9 +1,14 @@
 Stkup::Application.routes.draw do
   get "sessions/new"
 
-  resources :users
+  resources :users do
+    member do
+      get :interests
+    end
+  end
   resources :sessions, :only => [:new, :create, :destroy]
   resources :answers, :only => [:create, :destroy]
+  resources :interests
 
   match '/signup',  :to => 'users#new'
   match '/signin',  :to => 'sessions#new'

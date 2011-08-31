@@ -1,0 +1,24 @@
+<table class="interests" summary="Stack Categories">
+  <tr>
+    <td class="main">
+	  <h1><%= @title %></h1>
+    </td>
+    <td class="add_category">
+      <%= link_to "Add Category", new_interest_path %><br />
+    </td>
+  </tr>
+  <tr>
+    <td class="main">
+      <% unless @interests.empty? %>
+		<%= will_paginate %>
+		<ul class="interests">
+		  <%= render @interests %>
+		</ul>
+		<%= will_paginate %>
+      <% end %>
+    </td>
+    <td class="sidebar">
+    </td>
+  </tr>
+</table>
+

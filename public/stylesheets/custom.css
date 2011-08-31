@@ -156,6 +156,34 @@ div.field, div.actions {
   margin-bottom: 10px;
 }
 
+/* User show page */
+
+table.interests {
+  width: 100%;
+  margin-bottom: 0;
+}
+
+.interests td.main {
+  width: 70%;
+  padding: 1em;
+  background: #fff;
+}
+
+.interests td.sidebar {
+  width: 30%;
+  padding: 1em;
+  vertical-align: top;
+  background: #fff;
+}
+
+.interests td.add_category {
+  width: 30%;
+  padding: 1em;
+  vertical-align: middle;
+  text-align: center;
+  background: #ffc;
+}
+
 /* Errors */
 
 .field_with_errors {

@@ -1,12 +1,10 @@
 class CreateInterests < ActiveRecord::Migration
   def self.up
     create_table :interests do |t|
-      t.integer :interest_id
       t.string :interest_desc
 
       t.timestamps
     end
-  add_index :interests, :interest_id
   end
 
   def self.down

@@ -319,4 +319,30 @@ describe UsersController do
       end
     end
   end  
+
+  describe "interests" do
+
+    describe "when not signed in" do
+
+      it "should protect 'interests'" do
+        get :interests, :id => 1
+        response.should redirect_to(signin_path)
+      end
+    end
+
+    describe "when signed in" do
+
+      before(:each) do
+        @user = test_sign_in(Factory(:user))
+        @interest = Factory(:interest)
+        @user.interested_in!(@interest)
+      end
+
+      it "should show user interest" do
+        get :interests, :id => @user
+        response.should have_selector("a", :href => interest_path(@interest),
+                                           :content => @interest.interest_desc)
+      end
+    end
+  end
 end

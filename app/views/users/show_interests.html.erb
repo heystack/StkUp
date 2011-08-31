@@ -1,0 +1,23 @@
+<table summary="User Interests listing">
+  <tr>
+    <td class="main">
+      <h1><%= @title %></h1>
+
+      <% unless @interests.empty? %>
+        <ul class="interests">
+          <%= render @interests %>
+        </ul>
+        <%= will_paginate @interests %>
+      <% end %>
+    </td>
+    <td class="sidebar round">
+      <%= render 'shared/user_info' %>
+      <%= render 'shared/stats' %>
+      <% unless @interests.empty? %>
+        <% @interests.each do |interest| %>
+          <%= interest.interest_id %>
+        <% end %>
+      <% end %>
+    </td>
+  </tr>
+</table>

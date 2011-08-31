@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :authenticate, :only => [:index, :edit, :update, :destroy]
+  before_filter :authenticate, :except => [:show, :new, :create]
   before_filter :correct_user, :only => [:edit, :update]
   before_filter :admin_user,   :only => :destroy
     
@@ -16,7 +16,7 @@ class UsersController < ApplicationController
 
   def new
     if signed_in?
-      flash[:notice] = "You must first sign out in order to create a new user."
+      flash[:notice] = "You must first sign out order to create a new user."
       redirect_to root_path
     else
       @user = User.new
@@ -26,7 +26,7 @@ class UsersController < ApplicationController
 
   def create
     if signed_in?
-        flash[:notice] = "You must first sign out in order to create a new user."
+        flash[:notice] = "You must first sign out order to create a new user."
         redirect_to root_path
     else
       @user = User.new(params[:user])
@@ -62,6 +62,13 @@ class UsersController < ApplicationController
     redirect_to users_path
   end
   
+  def interests
+    @title = "Interests"
+    @user = User.find(params[:id])
+    @interests = @user.interests.paginate(:page => params[:page])
+    render 'show_interests'
+  end
+
   private
 
     def correct_user
