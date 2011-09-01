@@ -62,6 +62,16 @@ class UsersController < ApplicationController
     redirect_to users_path
   end
   
+  def toggle_admin
+    User.find(params[:id]).toggle!(:admin)
+    flash[:success] = "Admin toggled."
+    respond_to do |format|
+      format.html { redirect_to users_path }
+      format.js
+    end
+    # redirect_to users_path
+  end
+  
   def interests
     @title = "Interests"
     @user = User.find(params[:id])
@@ -76,8 +86,9 @@ class UsersController < ApplicationController
       redirect_to(root_path) unless current_user?(@user)
     end
 
-    def admin_user
-      redirect_to(root_path) unless current_user.admin?
-    end
+    # Moved to sessions_helper.rb
+    # def admin_user
+    #   redirect_to(root_path) unless current_user.admin?
+    # end
   
 end

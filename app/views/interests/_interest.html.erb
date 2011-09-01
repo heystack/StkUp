@@ -1,3 +1,7 @@
 <li>
   <%= link_to interest.interest_desc, interest %>
+  <% if current_user.admin? %>
+  | <%= link_to "delete", interest, :method => :delete, :confirm => "You sure?",
+                                	:title => "Delete #{interest.interest_desc}" %>
+  <% end %>
 </li>

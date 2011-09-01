@@ -1,9 +1,15 @@
 class InterestsController < ApplicationController
   before_filter :authenticate, :except => [:show, :new, :create]
+  before_filter :admin_user,   :only => :destroy
     
   def index
     @title = "Stack Categories (Interests)"
     @interests = Interest.paginate(:page => params[:page])
+  end
+
+  def show
+    @interest = Interest.find(params[:id])
+    @title = @interest.interest_desc
   end
 
   def new
@@ -31,5 +37,11 @@ class InterestsController < ApplicationController
       redirect_to root_path
     end
   end
-  
+
+  def destroy
+    Interest.find(params[:id]).destroy
+    flash[:success] = "Stack Category deleted."
+    redirect_to interests_path
+  end
+    
 end
