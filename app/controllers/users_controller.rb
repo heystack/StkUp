@@ -63,13 +63,14 @@ class UsersController < ApplicationController
   end
   
   def toggle_admin
-    User.find(params[:id]).toggle!(:admin)
-    flash[:success] = "Admin toggled."
+    @user = User.find(params[:id])
+    @user.toggle!(:admin)
+    # redirect_to does not seem to be working, so no flash
+    # flash[:success] = "Admin toggled."
     respond_to do |format|
-      format.html { redirect_to users_path }
+      format.html { redirect_to @user }
       format.js
     end
-    # redirect_to users_path
   end
   
   def interests

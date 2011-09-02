@@ -10,6 +10,8 @@ Stkup::Application.routes.draw do
   resources :answers, :only => [:create, :destroy]
   resources :interests
 
+  match 'users/:id' => 'users#toggle_admin'
+
   match '/signup',  :to => 'users#new'
   match '/signin',  :to => 'sessions#new'
   match '/signout', :to => 'sessions#destroy'

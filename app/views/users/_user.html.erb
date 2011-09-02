@@ -2,19 +2,17 @@
   <%= gravatar_for user, :size => 30 %>
   <%= link_to user.name, user %>
   <% if current_user.admin? %>
-  | <%= link_to "delete", user, :method => :delete, :confirm => "You sure?",
+    | <%= link_to "delete", user, :method => :delete, :confirm => "You sure?",
                                 :title => "Delete #{user.name}" %>
   <% end %>
-  <div id="toggle_admin">
+  <span id="toggle_admin<%= user.id %>" class="toggle_admin">
   <% if user.admin? %>
-  | admin = <%= user.admin? %>
+    | <img src="http://icons.iconarchive.com/icons/iconshock/real-vista-development/256/admin-privilege-icon.png" height="25">
   <% else %>
-	<%= form_for user,
-				 :html => { :method => :toggle_admin },
-	             :remote => true do |f| %>
-	  <div class="actions"><%= f.submit "Toggle Admin" %></div>
-	<% end %>
   <% end %>
-  </div>
+  </span>
+  <%= form_for user, :html => { :method => :toggle_admin }, :remote => true do |f| %>
+    <%= f.submit "Toggle Admin", :class => "toggle_admin_button" %>
+  <% end %>
 </li>
 

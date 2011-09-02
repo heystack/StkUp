@@ -1,1 +1,5 @@
-$("toggle_admin").update("Hello world")
+<% if @user.admin? %>
+  $("toggle_admin<%= @user.id %>").update('<%= escape_javascript(render ('users/toggle_admin')) %>')
+<% else %>
+  $("toggle_admin<%= @user.id %>").update("")
+<% end %>
