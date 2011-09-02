@@ -68,7 +68,7 @@ class UsersController < ApplicationController
     # redirect_to does not seem to be working, so no flash
     # flash[:success] = "Admin toggled."
     respond_to do |format|
-      format.html { redirect_to @user }
+      format.html { redirect_to interests_path }
       format.js
     end
   end
