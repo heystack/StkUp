@@ -33,4 +33,32 @@ describe Interest do
       @interest.interested_users.should include(@user)
     end
   end
+  
+  describe "stack associations" do
+
+    before(:each) do
+        @attr = {
+          :question => "How much do you pay your babysitter?",
+          :question_subtext => "The amount you typically pay your babysitter per hour",
+          :choice_picker_type => "select",
+          :chart_type => "pie",
+          :created_by => "1"
+        }
+        @stack = @interest.stacks.create(@attr)
+    end
+
+    it "should have a stacks attribute" do
+      @interest.should respond_to(:stacks)
+    end
+
+    it "should have the right stack" do
+      @interest.stacks.should == [@stack]
+    end
+    
+    it "should destroy associated stacks" do
+      @interest.destroy
+      Stack.find_by_id(@stack.id).should be_nil
+    end
+  end
+
 end

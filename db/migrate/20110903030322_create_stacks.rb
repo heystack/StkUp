@@ -10,7 +10,6 @@ class CreateStacks < ActiveRecord::Migration
 
       t.timestamps
     end
-    add_index :stacks, :stack_id
     add_index :stacks, :created_by
   end
 

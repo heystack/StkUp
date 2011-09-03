@@ -10,6 +10,7 @@ class InterestsController < ApplicationController
   def show
     @interest = Interest.find(params[:id])
     @title = @interest.interest_desc
+    @stacks = @interest.stacks
   end
 
   def new

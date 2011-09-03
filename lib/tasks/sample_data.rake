@@ -6,6 +6,7 @@ namespace :db do
     make_answers
     make_interests
     make_interested_users
+    make_stacks
   end
 end
 
@@ -51,3 +52,23 @@ def make_interested_users
   interests = Interest.all
   interests.each { |interest| user.interested_in!(interest) }
 end
+
+def make_stacks
+  33.times do |i|
+    3.times do |s|
+      stk_question = Faker::Lorem.sentence(6).sub!('.', '?')
+      stk_question_subtext = Faker::Lorem.sentence(3)
+      stk_choice_picker_type = "text"
+      stk_chart_type = "pie"
+      stk_created_by = s
+      Stack.create!(
+        :interest_id => i,
+        :question => stk_question,
+        :question_subtext => stk_question_subtext,
+        :choice_picker_type => stk_choice_picker_type,
+        :chart_type => stk_chart_type,
+        :created_by => stk_created_by)
+    end
+  end
+end
+

@@ -6,5 +6,5 @@ class Interest < ActiveRecord::Base
                                :dependent => :destroy  
   has_many :interested_users,  :through => :reverse_interests,
                                :source => :user
-
+  has_many :stacks, :dependent => :destroy
 end

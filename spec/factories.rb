@@ -19,3 +19,11 @@ end
 Factory.define :interest do |interest|
   interest.interest_desc    "Parenting"
 end
+
+Factory.define :stack do |stk|
+  stk.question            "How much do you pay your babysitter?"
+  stk.question_subtext    "The amount you typically pay your babysitter per hour"
+  stk.choice_picker_type  "select"
+  stk.chart_type          "pie"
+  stk.created_by          "1"
+end

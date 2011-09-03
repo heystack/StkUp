@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110828181021) do
+ActiveRecord::Schema.define(:version => 20110903030322) do
 
   create_table "answers", :force => true do |t|
     t.integer  "user_id"
@@ -31,6 +31,19 @@ ActiveRecord::Schema.define(:version => 20110828181021) do
   end
 
   add_index "interests", ["interest_id"], :name => "index_interests_on_interest_id"
+
+  create_table "stacks", :force => true do |t|
+    t.integer  "interest_id"
+    t.string   "question"
+    t.string   "question_subtext"
+    t.string   "chart_type"
+    t.string   "choice_picker_type"
+    t.integer  "created_by"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "stacks", ["created_by"], :name => "index_stacks_on_created_by"
 
   create_table "user_interests", :force => true do |t|
     t.integer  "user_id"

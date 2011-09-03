@@ -172,6 +172,16 @@ form.edit_user {
   font-size: 8pt;
 }
 
+/* Interest show page */
+
+.question {
+  font-size: 1.5em;
+}
+
+.question_subtext {
+  font-style: italic;
+}
+
 /* User show page */
 
 table.interests {
