@@ -65,10 +65,10 @@ class UsersController < ApplicationController
   def toggle_admin
     @user = User.find(params[:id])
     @user.toggle!(:admin)
-    # redirect_to does not seem to be working, so no flash
-    # flash[:success] = "Admin toggled."
+    flash[:success] = "Admin toggled."
     respond_to do |format|
-      format.html { redirect_to interests_path }
+      # redirect_to does not seem to be working, so used document.location in toggle_admin.js.erb...seems messy
+      format.html { redirect_to "www.google.com" }
       format.js
     end
   end
