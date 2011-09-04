@@ -105,3 +105,6 @@ _answer_form.html.erb:
   </div>
 <% end %>
 
+CREATE NEW INTERESTS
+
+CREATE NEW STACKS
