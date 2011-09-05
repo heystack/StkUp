@@ -6,8 +6,10 @@
 	<span class="choice_picker_type"><%= stack.choice_picker_type %></span><br/>
 	<span class="chart_type"><%= stack.chart_type %></span><br/>
 	<span class="created_by"><%= stack.created_by %></span><br/>
+	<% if !@interest.stacks.empty? %>
 	<strong>Choices:</strong><br/>
     <%= render stack.choices %>
+	<% end %>
   </td>
   <% unless @user.nil? %>
   <% if current_user?(@user.id) %>
