@@ -1,9 +1,16 @@
-<h1><%= @title %></h1>
+<table class="stacks" summary="Stack Categories">
+  <tr>
+    <td class="main">
+	  <h1><%= @title %></h1>
+    </td>
+    <td class="add_stack">
+      <%= link_to "Add Stack", new_interest_stack_path(@interest) %><br />
+    </td>
+  </tr>
 
 <% if @interest.stacks.empty? %>
-  No Stacks.
+  <tr><td span=2>No Stacks.</td></tr>
 <% else %>
-  <table class="stacks" summary="Stacks in the Category of Interest">
-    <%= render @stacks %>
-  </table>
+  <%= render @stacks %>
 <% end %>
+</table>

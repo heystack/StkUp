@@ -1,0 +1,12 @@
+<%= render 'shared/error_messages', :object => f.object %>
+<div class="field">
+  <%= f.hidden_field :created_by, :value => current_user.id %><br />
+  <%= f.label "Stack Question" %><br />
+  <%= f.text_field :question %><br />
+  <%= f.label "Stack Question Subtext" %><br />
+  <%= f.text_field :question_subtext %><br />
+  <%= f.label "Stack Choice Picker Type" %><br />
+  <%= f.text_field :choice_picker_type %><br />
+  <%= f.label "Stack Chart Type" %><br />
+  <%= f.text_field :chart_type %><br />
+</div>

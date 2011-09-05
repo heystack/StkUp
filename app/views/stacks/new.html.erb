@@ -1,0 +1,8 @@
+<h1><%= @title %></h1>
+
+<%= form_for(@stack, :url => interest_stacks_path) do |f| %>
+  <%= render 'new_stack', :f => f %>
+  <div class="actions">
+    <%= f.submit "Create Stack" %>
+  </div>
+<% end %>

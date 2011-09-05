@@ -26,4 +26,10 @@ Factory.define :stack do |stk|
   stk.choice_picker_type  "select"
   stk.chart_type          "pie"
   stk.created_by          "1"
+  stk.association         :interest
+end
+
+Factory.define :choice do |c|
+  c.choice_text           "Less than $10"
+  c.association           :stack
 end

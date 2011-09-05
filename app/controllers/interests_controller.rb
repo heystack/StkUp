@@ -28,7 +28,7 @@ class InterestsController < ApplicationController
       @interest = Interest.new(params[:interest])
       if @interest.save
         flash[:success] = "Stack Category Created!"
-        redirect_to interests_path
+        redirect_to interest_path
       else
         @title = "Create Stack Category"
         render 'new'

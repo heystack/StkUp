@@ -26,7 +26,7 @@ describe Stack do
       @stack.should respond_to(:interest)
     end
 
-    it "should have the right associated user" do
+    it "should have the right associated interest" do
       @stack.interest_id.should == @interest.id
       @stack.interest.should == @interest
     end

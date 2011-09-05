@@ -1,7 +1,7 @@
 <tr>
   <td class="answer">
-    <span class="stack"><%= answer.stack_id %></span>
-    <span class="choice"><%= answer.choice_id %></span>
+	<span class="stack">Q: <%= Stack.find(answer.stack_id).question %></span>
+	<span class="choice">A: <%= Choice.find(answer.choice_id).choice_text %></span>
     <span class="timestamp">
       Answered <%= time_ago_in_words(answer.created_at) %> ago.
     </span>

@@ -8,7 +8,15 @@ Stkup::Application.routes.draw do
   end
   resources :sessions, :only => [:new, :create, :destroy]
   resources :answers, :only => [:create, :destroy]
+  resources :interests do
+    resources :stacks
+  end
   resources :interests
+  resources :stacks do
+    resources :choices
+  end
+  resources :stacks
+  resources :choices
 
   match 'users/:id' => 'users#toggle_admin'
 

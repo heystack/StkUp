@@ -1,10 +1,13 @@
 <% @user = User.find_by_id(stack.created_by + 1) %>
 <tr>
   <td class="stack">
-    <span class="question"><%= stack.question %></span><br/>
+    <span class="question"><%= link_to stack.question, stack_path(stack.id) %></span><br/>
 	<span class="question_subtext"><%= stack.question_subtext %></span><br/>
 	<span class="choice_picker_type"><%= stack.choice_picker_type %></span><br/>
-	<span class="chart_type"><%= stack.chart_type %></span>
+	<span class="chart_type"><%= stack.chart_type %></span><br/>
+	<span class="created_by"><%= stack.created_by %></span><br/>
+	<strong>Choices:</strong><br/>
+    <%= render stack.choices %>
   </td>
   <% unless @user.nil? %>
   <% if current_user?(@user.id) %>
