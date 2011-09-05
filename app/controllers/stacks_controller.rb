@@ -32,7 +32,7 @@ class StacksController < ApplicationController
       @stack = @interest.stacks.new(params[:stack])
       if @stack.save
         flash[:success] = "Stack Created!"
-        redirect_to interests_path
+        redirect_to interest_path(@interest.id)
       else
         @title = "Create a New Stack"
         render 'new'
