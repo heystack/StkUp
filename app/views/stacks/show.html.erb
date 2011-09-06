@@ -14,10 +14,6 @@
 <% else %>
   <tr><td span=2>Choices</td></tr>
   <tr><td span=2><%= render @choices %></td></tr>
-  <tr>
-	<td>Answer form</td>
-    <td><%= render 'answers/answer_form' %></td>
-  </tr>
 <% end %>
 
 <% if @answers.empty? %>
@@ -28,3 +24,7 @@
 <% end %>
 
 </table>
+
+<%= render 'answers/answer_form' %>
+
+<%= render 'shared/stkchart_pie' %>

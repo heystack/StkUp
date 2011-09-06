@@ -1,9 +1,9 @@
 <tr>
   <td class="answer">
-	<span class="stack">Q: <%= Stack.find(answer.stack_id).question %></span>
-	<span class="choice">A: <%= Choice.find(answer.choice_id).choice_text %></span>
+	<span class="stack">Q: <%= Stack.find(answer.stack_id).question %></span><br/>
+	<span class="choice">A: <%= Choice.find(answer.choice_id).choice_text %></span><br/>
     <span class="timestamp">
-      Answered <%= time_ago_in_words(answer.created_at) %> ago.
+      Answered <%= time_ago_in_words(answer.created_at) %> ago by <%= User.find(answer.user_id).name %>.
     </span>
   </td>
   <% if current_user?(answer.user) %>

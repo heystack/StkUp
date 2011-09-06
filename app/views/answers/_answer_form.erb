@@ -1,0 +1,20 @@
+<%= form_for @answer do |f| %>
+  <%= render 'shared/error_messages', :object => f.object %>
+  <div class="mad-libs">
+	<table>
+	  <tr>
+	    <td style="vertical-align:top"><div class="begin-quote">&#8220;</div></td>
+	    <td class="madlibs-content round">
+	    I pay my babysitter
+	    <%= f.hidden_field :stack_id, :value => @stack.id %>
+		<% @cp = Array.new %>
+		<% @choices.map { |c| @cp << [c.choice_text, c.id] } %>
+	    <%= f.select :choice_id, @cp %>
+	    dollars per hour
+	    </td>
+	    <td style="vertical-align:bottom"><div class="end-quote">&#8221;</div></td>
+	  </tr>
+	</table>
+    <%= f.submit "Stack Me Up", :class => "submit_button round" %>
+  </div>
+<% end %>

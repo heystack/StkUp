@@ -13,6 +13,8 @@ class StacksController < ApplicationController
     @title = @stack.question
     @choices = @stack.choices
     @answers = @stack.answers
+    @answer = @stack.answers.new
+    @grouped_answers = current_user.grouped_answers(@stack.id) unless @stack.answers.count == 0
   end
 
   def new
