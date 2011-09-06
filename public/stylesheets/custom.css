@@ -172,6 +172,26 @@ form.edit_user {
   font-size: 8pt;
 }
 
+form.new_user_interest {
+  display: inline;
+}
+
+form.edit_user_interest {
+  display: inline;
+}
+
+span.interested_in_form {
+  display: inline;
+}
+
+.interested_button {
+  border: 1px solid #eee;
+  background: #ffc;
+  color: #707070;
+  font-size: 8pt;
+  display: inline;
+}
+
 /* Interest show page */
 
 .question {

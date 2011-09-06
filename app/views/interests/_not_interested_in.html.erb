@@ -1,0 +1,5 @@
+<%= form_for current_user.user_interests.find_by_interest_id(@interest),
+             :html => { :method => :delete },
+			 :remote => true  do |f| %>
+  <%= f.submit "Unfollow", :class => "interested_button" %>
+<% end %>

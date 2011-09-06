@@ -16,6 +16,7 @@
       <strong>Name</strong> <%= @user.name %><br />
       <strong>URL</strong>  <%= link_to user_path(@user), @user %><br />
       <strong>Answers</strong> <%= @user.answers.count %>
+	  <%= render @user_interests %>
     </td>
   </tr>
 </table>

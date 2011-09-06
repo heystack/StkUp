@@ -11,6 +11,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @answers = @user.answers.paginate(:page => params[:page])
+    @user_interests = @user.user_interests
     @title = @user.name
   end
 

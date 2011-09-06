@@ -42,7 +42,7 @@ end
 
 def make_interested_users
   user = User.all.first
-  interests = Interest.all
+  interests = Interest.all(:limit => 6)
   interests.each { |interest| user.interested_in!(interest) }
 end
 

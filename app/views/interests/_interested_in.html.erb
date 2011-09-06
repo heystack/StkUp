@@ -1,0 +1,5 @@
+<%= form_for current_user.user_interests.build(:interest_id => @interest.id),
+			 :remote => true do |f| %>
+  <%= f.hidden_field :interest_id %>
+  <%= f.submit "Follow", :class => "interested_button" %>
+<% end %>

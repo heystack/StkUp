@@ -1,5 +1,9 @@
 <li>
   <%= link_to interest.interest_desc, interest %>
+  <% if signed_in? %>
+  <% @interest = interest %>
+  | <%= render 'interests/interested_in_form' %>
+  <% end %>
   <% if current_user.admin? %>
   | <%= link_to "delete", interest, :method => :delete, :confirm => "You sure?",
                                 	:title => "Delete #{interest.interest_desc}" %>

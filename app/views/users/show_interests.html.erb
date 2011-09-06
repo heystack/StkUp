@@ -13,11 +13,6 @@
     <td class="sidebar round">
       <%= render 'shared/user_info' %>
       <%= render 'shared/stats' %>
-      <% unless @interests.empty? %>
-        <% @interests.each do |interest| %>
-          <%= interest.id %>
-        <% end %>
-      <% end %>
     </td>
   </tr>
 </table>

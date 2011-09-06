@@ -1,0 +1,7 @@
+<span id="interested_in_form">
+<% if current_user.interested_in?(@interest) %>
+  <%= render 'interests/not_interested_in' %>
+<% else %>
+  <%= render 'interests/interested_in' %>
+<% end %>
+</span>

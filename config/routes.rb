@@ -4,6 +4,7 @@ Stkup::Application.routes.draw do
   resources :users do
     member do
       get :interests
+      get :user_interests
     end
   end
   resources :sessions, :only => [:new, :create, :destroy]
@@ -12,6 +13,7 @@ Stkup::Application.routes.draw do
     resources :stacks
   end
   resources :interests
+  resources :user_interests
   resources :stacks do
     resources :choices
   end
