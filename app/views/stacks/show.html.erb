@@ -1,4 +1,4 @@
-<table class="stacks" summary="Stack Categories">
+<table class="stacks" summary="Stacks">
   <tr><td span=2><%= link_to @interest.interest_desc, interest_path(@interest.id) %></td></tr>
   <tr>
     <td class="main">
@@ -14,6 +14,10 @@
 <% else %>
   <tr><td span=2>Choices</td></tr>
   <tr><td span=2><%= render @choices %></td></tr>
+  <tr>
+	<td>Answer form</td>
+    <td><%= render 'answers/answer_form' %></td>
+  </tr>
 <% end %>
 
 <% if @answers.empty? %>
