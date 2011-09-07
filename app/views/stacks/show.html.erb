@@ -20,7 +20,7 @@
   <tr><td span=2>No Answers.</td></tr>
 <% else %>
   <tr><td span=2>Answers</td></tr>
-  <%= render @answers %>
+  <%= render @answers, :with_question => nil %>
 <% end %>
 
 </table>

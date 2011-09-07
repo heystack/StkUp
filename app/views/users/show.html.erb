@@ -12,13 +12,5 @@
         <%= will_paginate @answers %>
       <% end %>
     </td>
-    <td class="sidebar round">
-      <strong>Name</strong> <%= @user.name %><br />
-      <strong>URL</strong>  <%= link_to user_path(@user), @user %><br />
-      <strong>Answers</strong> <%= @user.answers.count %>
-	  <%= render @user_interests %>
-    </td>
   </tr>
 </table>
-
-<script type="text/javascript" src="//ajax.googleapis.com/ajax/static/modules/gviz/1.0/chart.js"> {"dataSourceUrl":"//spreadsheets.google.com/a/stkup.com/spreadsheet/tq?key=0AvPJQf9tyUtQdEJ0LTNVc3FrM3RtOXd6SmJ5TjEwamc&transpose=1&headers=1&range=A1%3AB5&gid=1&pub=1","options":{"series":{"0":{"color":"#cccccc"},"1":{"color":"#cccccc"},"2":{"color":"#ff0000"},"3":{"color":"#cccccc"},"4":{"color":"#cccccc"}},"reverseCategories":false,"backgroundColor":"#FFFFFF","vAxis":{"format":"#0.##########"},"width":600,"logScale":false,"hasLabelsColumn":false,"hAxis":{"maxAlternation":1},"vAxes":[{"min":null,"title":"% Response","max":null,"minValue":0,"maxValue":8}],"title":"Sample Stack Report","height":371,"legend":"bottom","reverseAxis":false,"isStacked":false},"state":{},"chartType":"ColumnChart","chartName":"Chart 1"} </script>

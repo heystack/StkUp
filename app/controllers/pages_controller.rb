@@ -24,4 +24,12 @@ class PagesController < ApplicationController
     @title = "Help"
   end
 
+  def contact_us_form
+    # @contact_email = params[:contact_email]
+    @contact = params[:contact]
+    PageMailer.contact_us_email(@contact).deliver
+    flash[:success] = "Thanks for contacting us! We'll get back to you shortly."
+    redirect_to root_path
+  end
+
 end

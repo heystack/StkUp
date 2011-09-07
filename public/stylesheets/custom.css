@@ -304,11 +304,10 @@ h1.answer {
 }
 
 table.answers {
-  margin-top: 1em;
+  margin-top: 2em;
 }
 
 table.answers tr {
-  height: 70px;
 }
 
 table.answers tr td.gravatar {
@@ -320,26 +319,29 @@ table.answers tr td.gravatar {
 table.answers tr td.answer {
   border-top: 1px solid #ccc;
   vertical-align: top;
-  padding-top: 10px;
 }
 
-table.answers tr td.answer span.stack {
+table.answers tr td.answer div.stack {
   display: block;
-  font-size: 200%;
+  font-size: 150%;
+  font-weight: bold;
+  color: Black;
+}
+
+table.answers tr td.answer div.choice {
+  display: block;
+  font-size: 150%;
+  font-style: italic;
   color: Red;
 }
 
-table.answers tr td.answer span.choice {
-  display: block;
-  font-size: 150%;
-  color: Green;
-}
-
-table.answers tr td.answer span.timestamp {
+.timestamp {
   display: block;
   font-size: 85%;
   color: #666;
 }
+
+/* User Info */
 
 div.user_info img {
   padding-right: 0.1em;
@@ -364,4 +366,27 @@ form.new_answer {
 form.new_answer textarea {
   height: 4em;
   margin-bottom: 0;
+}
+
+/* About Us */
+
+.about_block {
+  margin: 20px 0px 20px 0px;
+}
+
+.about_img {
+  position:inline;
+  float:left;
+  margin: 0px 20px 0px 0px;
+}
+
+.about_name {
+  position:inline;
+  font-weight:bold;
+  font-size: 200%;
+}
+
+.about_desc {
+  position:inline;
+  font-color: #ccc;
 }

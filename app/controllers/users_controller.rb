@@ -44,6 +44,9 @@ class UsersController < ApplicationController
   
   def edit
     @title = "Edit user"
+    @user_interests = @user.user_interests
+    # Tell the UserMailer to send a welcome Email after save
+    # UserMailer.welcome_email(@user).deliver
   end
   
   def update
