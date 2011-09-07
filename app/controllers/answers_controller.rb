@@ -6,7 +6,7 @@ class AnswersController < ApplicationController
     @answer  = current_user.answers.build(params[:answer])
     if @answer.save
       flash[:success] = "Answer created!"
-      redirect_to root_path
+      redirect_to stack_path(@answer.stack_id)
     else
       @feed_items = []
       render 'pages/home'
