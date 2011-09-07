@@ -25,10 +25,10 @@
 
 </table>
 
-<% if !@choices.empty? %>
+<% if @choices %>
 <%= render 'answers/answer_form' %>
 <% end %>
 
-<% if !@grouped_answers.empty? %>
+<% if @grouped_answers %>
 <%= render 'shared/stkchart_pie' %>
 <% end %>
