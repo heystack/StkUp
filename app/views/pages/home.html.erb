@@ -12,16 +12,18 @@
       </td>
     </tr>
   </table>
-  <% if Answer.count != 0 %>
+  <% if @answers.count != 0 %>
 	<%= render 'shared/stkchart_pie' %>
   <% end %>
 
 <% else %>
   <p>
-    <%= render 'layouts/madlibs' %>
+	<% if @stack && @choices %>
+	  <%= render 'answers/answer_form', :no_button => "t" %>
+	<% end %>
   </p>
 
-  <%= link_to "Stack Me Up!", signup_path, :class => "signup_button round" %>
+  <!-- <%= link_to "Stack Me Up!", signup_path, :class => "signup_button round" %> -->
 
   <div class="tagline">
     Simple Purposeful Comparisons

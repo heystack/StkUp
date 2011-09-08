@@ -17,7 +17,7 @@ class UsersController < ApplicationController
 
   def new
     if signed_in?
-      flash[:notice] = "You must first sign out order to create a new user."
+      flash[:notice] = "You must first sign out in order to create a new user."
       redirect_to root_path
     else
       @user = User.new
@@ -27,13 +27,13 @@ class UsersController < ApplicationController
 
   def create
     if signed_in?
-        flash[:notice] = "You must first sign out order to create a new user."
+        flash[:notice] = "You must first sign out in order to create a new user."
         redirect_to root_path
     else
       @user = User.new(params[:user])
       if @user.save
         sign_in @user
-        flash[:success] = "Welcome to the Sample App!"
+        flash[:success] = "Welcome to StkUp!"
         redirect_to @user
       else
         @title = "Sign up"

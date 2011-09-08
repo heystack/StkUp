@@ -5,7 +5,20 @@
         <%= gravatar_for @user %>
         <%= @user.name %>
       </h1>
-      <% unless @user.answers.empty? %>
+      <% if @user.answers.empty? %>
+		<% if Interest.count == 0 %>
+      	  <br/><h3>Wow! No Stacks!<br/>Do you want to <%= link_to "create the first Stack Category?", new_interest_path %></h3>
+		<% else %>
+		  <% if Stack.count == 0 %>
+      	    <br/><h3>Wow! No Stacks!<br/><%= link_to "Create some Stacks!", interests_path %></h3>
+		  <% end %>
+		<% end %>
+		<% if @user_interests.empty? %>
+  	      <br/><h3><%= link_to "Follow some Stacks!", interests_path %></h3>
+	    <% else %>
+	      <%= render @user_interests %>
+	    <% end %>
+      <% else %>
         <table class="answers" summary="User answers">
           <%= render @answers %>
         </table>

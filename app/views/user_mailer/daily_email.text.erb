@@ -1,0 +1,7 @@
+Hi <%=h @user.name %>
+Your interests are:
+<% @user.interests.each do |interest| %>
+<%=h interest.interest_desc %>
+<% end %>
+
+ -sincerely, the mailer server

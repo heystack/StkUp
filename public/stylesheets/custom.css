@@ -390,3 +390,10 @@ form.new_answer textarea {
   position:inline;
   font-color: #ccc;
 }
+
+/* Chart */
+
+div.chart_div {
+  margin: auto;
+  width: 100%;
+}

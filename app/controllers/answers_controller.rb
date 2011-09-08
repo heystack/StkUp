@@ -3,13 +3,17 @@ class AnswersController < ApplicationController
   before_filter :authorized_user, :only => :destroy
   
   def create
-    @answer  = current_user.answers.build(params[:answer])
-    if @answer.save
-      flash[:success] = "Answer created!"
-      redirect_to stack_path(@answer.stack_id)
+    if signed_in?
+      @answer  = current_user.answers.build(params[:answer])
+      if @answer.save
+        flash[:success] = "Answer created!"
+        redirect_to stack_path(@answer.stack_id)
+      else
+        @feed_items = []
+        render 'pages/home'
+      end
     else
-      @feed_items = []
-      render 'pages/home'
+      redirect_to signup_path      
     end
   end
 
