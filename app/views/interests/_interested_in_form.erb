@@ -1,4 +1,4 @@
-<span id="interested_in_form">
+<span id="interested_in_form<%= @interest.id %>">
 <% if current_user.interested_in?(@interest) %>
   <%= render 'interests/not_interested_in' %>
 <% else %>

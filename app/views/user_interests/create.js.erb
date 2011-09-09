@@ -1,1 +1,1 @@
-$("interested_in_form").update("<%= escape_javascript(render('interests/not_interested_in')) %>")
+$("interested_in_form<%= @interest.id %>").update("<%= escape_javascript(render('interests/not_interested_in')) %>")
