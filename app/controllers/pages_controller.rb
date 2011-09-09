@@ -16,7 +16,7 @@ class PagesController < ApplicationController
       # TODO: Clean this up...maybe store choice_text directly in the Answer model?
       if signed_in?
         @my_answers = @answers.find_all_by_user_id(current_user)
-        if @my_answers
+        if !@my_answers.empty?
           @my_last_choice = Choice.find(@my_answers.last.choice_id)
         end
         if @stack.answers.count > 0
