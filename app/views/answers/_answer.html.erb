@@ -2,7 +2,7 @@
 <tr>
   <td class="answer">
 	<% if with_question %>
-	<div class="stack"><%= Stack.find(answer.stack_id).question %></div>
+	<div class="stack"><%= link_to Stack.find(answer.stack_id).question, stack_path(answer.stack_id) %></div>
 	<% end %>
   	<div class="choice"><%= Choice.find(answer.choice_id).choice_text %></div>
     <div class="timestamp">

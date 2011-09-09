@@ -14,6 +14,10 @@ class StacksController < ApplicationController
     @choices = @stack.choices
     @answers = @stack.answers
     @answer = @stack.answers.new
+    @my_answers = @answers.find_all_by_user_id(current_user)
+    if !@my_answers.empty?
+      @my_last_choice = Choice.find(@my_answers.last.choice_id)
+    end
     # This version of @grouped_answers gives the count by choice_id, instead of choice_text 
     # @grouped_answers = current_user.grouped_answers(@stack.id) unless @stack.answers.count == 0
     # This UGLY code gives @grouped_answers count by choice_text
@@ -21,7 +25,14 @@ class StacksController < ApplicationController
     if @stack.answers.count > 0
       @grouped_answers_with_id = current_user.grouped_answers(@stack.id)
       @grouped_answers = Array.new
+      # This may be the ugliest line of code I have ever written
       @grouped_answers_with_id.map { |a| @grouped_answers << [Choice.find_by_id(a[0].to_i).choice_text, a[1]] }
+      if @my_last_choice
+        # No, no...THIS may be the ugliest line of code I have ever written...
+        # wish I could use @grouped_answers.rindex(@my_last_choice.choice_text),
+        # but rindex matches to SECOND item, not FIRST
+        @my_choice_index = @grouped_answers.flatten.index(@my_last_choice.choice_text) / 2
+      end
     end
   end
 

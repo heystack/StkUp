@@ -20,7 +20,7 @@
 	    <% end %>
       <% else %>
         <table class="answers" summary="User answers">
-          <%= render @answers %>
+          <%= render @answers, :with_question => "t" %>
         </table>
         <%= will_paginate @answers %>
       <% end %>

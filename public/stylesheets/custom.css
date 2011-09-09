@@ -202,6 +202,10 @@ span.interested_in_form {
   font-style: italic;
 }
 
+.stack {
+  vertical-align: top;
+}
+
 /* User show page */
 
 table.interests {
@@ -323,9 +327,10 @@ table.answers tr td.answer {
 
 table.answers tr td.answer div.stack {
   display: block;
-  font-size: 150%;
+  font-size: 125%;
   font-weight: bold;
   color: Black;
+  vertical-align: top;
 }
 
 table.answers tr td.answer div.choice {
@@ -391,9 +396,49 @@ form.new_answer textarea {
   font-color: #ccc;
 }
 
-/* Chart */
+/* Stack Display Page */
 
 div.chart_div {
   margin: auto;
   width: 100%;
+}
+
+.choices td.add_choice {
+  width: 30%;
+  padding: 1em;
+  vertical-align: middle;
+  text-align: center;
+  background: #ffc;
+}
+
+.stack_question_plain {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  text-align: center;
+  width: 300px;
+  background: #ffc;
+  font-size: 200%;
+  font-weight: bold;
+  padding: 20px;
+}
+
+.form_select {
+  border: 1px solid #eee;
+  background: #ffc;
+  color: red;
+  font-size: 100%;
+}
+
+input.stack_me_up_button {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  text-align: center;
+  width: 190px;
+  color: #fff;
+  background: #006400;
+  font-size: 100%;
+  font-weight: bold;
+  padding: 20px;
 }

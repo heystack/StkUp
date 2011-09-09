@@ -1,3 +1,15 @@
+<% @chart_width ||= 500 %>
+<% @chart_height ||= 400 %>
+<% @chart_legend ||= 'top' %>
+<% @chart_bg_color ||= 'white' %>
+<% @chart_colors = Array.new(@grouped_answers.count) %>
+<% @chart_colors.fill("grey", 0, @grouped_answers.count) %>
+<!-- I can't believe I'm writing code like this! -->
+<% @chart_colors = @chart_colors.each_with_index.map { |c,i| "rgb(#{150+i*20},#{150+i*20},#{150+i*20})" } %>
+<% if @my_choice_index %>
+  <% @chart_colors[@my_choice_index] = "red" %>
+<% end %>
+
 <script type="text/javascript">
 
   // Load the Visualization API and the piechart package.
@@ -21,16 +33,16 @@
 
 	  // Set chart options
 	  var options = {
-		'title':'How Much Do You Pay Your Babysitter?',
-	    'width':500,
-	    'height':400,
-		'colors': ['red','grey','grey'],
-		'pieSliceText': 'label',
-		'legend': 'none'
+	    'width': <%= @chart_width %>,
+	    'height':<%= @chart_height %>,
+		'colors': [<%=raw @chart_colors.map { |a| a.inspect }.join(',') %>],
+		'pieSliceText': 'percent',
+		'backgroundColor': '<%= @chart_bg_color %>',
+		'legend': '<%= @chart_legend %>'
 	  };
 
 	  // Instantiate and draw our chart, passing in some options.
-	  var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+	  var chart = new google.visualization.PieChart(document.getElementById('chart_div<%= @stack.id %>'));
 	  chart.draw(data, options);
 	  // var table = new google.visualization.Table(document.getElementById('table_div'));
 	  // table.draw(data);
@@ -38,6 +50,6 @@
 </script>
 
 <!--Div that will hold chart-->
-<div id="chart_div" class="chart_div"></div><br/>
+<div id="chart_div<%= @stack.id %>" class="chart_div"></div><br/>
 <div id="table_div"></div><br/>
 

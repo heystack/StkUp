@@ -1,28 +1,41 @@
 <% @user = User.find_by_id(stack.created_by + 1) %>
+<% @stack = stack %>
+<% @answers = stack.answers %>
+<% @my_answers = @answers.find_all_by_user_id(current_user) %>
+<% if !@my_answers.empty? %>
+<%  @my_last_choice = Choice.find(@my_answers.last.choice_id) %>
+<% end %>
+<% @grouped_answers = nil %>
+<% if @answers.count > 0 %>
+<%   @grouped_answers_with_id = current_user.grouped_answers(stack.id) %>
+<%   @grouped_answers = Array.new %>
+<%   @grouped_answers_with_id.map { |a| @grouped_answers << [Choice.find_by_id(a[0].to_i).choice_text, a[1]] } %>
+<%   if @my_last_choice %>
+<%     @my_choice_index = @grouped_answers.flatten.index(@my_last_choice.choice_text) / 2 %>
+<%   end %>
+<% end %>
 <tr>
   <td class="stack">
+	<span class="created_by"><%= gravatar_for @user, :size => 15 %> <%= link_to @user.name, @user %></span><br/>
     <span class="question"><%= link_to stack.question, stack_path(stack.id) %></span><br/>
 	<span class="question_subtext"><%= stack.question_subtext %></span><br/>
-	<span class="choice_picker_type"><%= stack.choice_picker_type %></span><br/>
-	<span class="chart_type"><%= stack.chart_type %></span><br/>
-	<span class="created_by"><%= stack.created_by %></span><br/>
-	<% if !@interest.stacks.empty? %>
-	<strong>Choices:</strong><br/>
-    <%= render stack.choices %>
-	<% end %>
+	<span class="question_answers"><%= pluralize(stack.answers.count, "answer") %></span><br/>
   </td>
   <% unless @user.nil? %>
-  <% if current_user?(@user.id) %>
   <td>
+  <% if current_user?(@user.id) %>
     <%= link_to "delete", stack, :method => :delete,
                                  :confirm => "You sure?",
                                  :title => stack.id %>
-  </td>
-  <% else %>
-  <td>
-	<%= link_to @user.name, @user %>
-  </td>
   <% end %>
+  <% if @grouped_answers %>
+  <%  @chart_width = 150 %>
+  <%  @chart_height = 120 %>
+  <%  @chart_legend = 'none' %>
+  <%  @chart_bg_color = '#99ccee' %>
+  <%= render 'shared/stkchart_pie' %>
+  <% end %>
+  </td>
   <% end %>
 </tr>
 
