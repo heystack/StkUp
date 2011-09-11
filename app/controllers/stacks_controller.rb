@@ -34,6 +34,7 @@ class StacksController < ApplicationController
         @my_choice_index = @grouped_answers.flatten.index(@my_last_choice.choice_text) / 2
       end
     end
+    @stack_creator = User.find_by_id(@stack.created_by)
   end
 
   def new
@@ -68,6 +69,16 @@ class StacksController < ApplicationController
     Stack.find(params[:id]).destroy
     flash[:success] = "Stack deleted."
     redirect_to interest_path
+  end
+
+  def send_stack_form
+    # @stack = Stack.find(params[:stack_id])
+    @stack = Stack.find(1)
+    @answer = @stack.answers.new
+    @contact = params[:contact]
+    StkMailer.send_stack_test(@contact).deliver
+    flash[:success] = "Stack sent to #{@contact[:email]}."
+    redirect_to stack_path(@stack)
   end
     
 end

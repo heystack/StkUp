@@ -1,5 +1,6 @@
 class AnswersController < ApplicationController
-  before_filter :authenticate, :only => [:create, :destroy]
+  # Removed before_filter for creating new answers upon user signup
+  # before_filter :authenticate, :only => [:create, :destroy]
   before_filter :authorized_user, :only => :destroy
   
   def create
@@ -13,6 +14,7 @@ class AnswersController < ApplicationController
         render 'pages/home'
       end
     else
+      session[:answer] = params[:answer]
       redirect_to signup_path      
     end
   end

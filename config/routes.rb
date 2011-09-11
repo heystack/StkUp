@@ -27,6 +27,7 @@ Stkup::Application.routes.draw do
   match '/signout', :to => 'sessions#destroy'
   match '/contact', :to => 'pages#contact'
   match '/contact_us_form', :to => 'pages#contact_us_form'
+  match '/send_stack_form', :to => 'stacks#send_stack_form'
   match '/about',   :to => 'pages#about'
   match '/help',    :to => 'pages#help'
 

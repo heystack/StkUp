@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>Here's Your Stack!</h1>
+    <p>
+      Stack sent with the following info:<br/>
+      Email: <%= @contact[:email] %><br/>
+      Comment: <%= @contact[:comment] %><br/>
+    </p>
+    <p><%= Time.now %></p>
+
+	<%= form_for @answer, :url => { :controller => :answers, :action => :create } do |f| %>
+	<table>
+	<tr>
+	<td><%= f.label :name %>:</td>
+	<td><%= f.text_field :name %></td>
+	</tr>
+
+    <%= f.submit "Send" %>
+	<% end %>
+	
+  </body>
+</html>

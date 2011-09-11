@@ -6,7 +6,7 @@
 	<% end %>
   	<div class="choice"><%= Choice.find(answer.choice_id).choice_text %></div>
     <div class="timestamp">
-      Answered <%= time_ago_in_words(answer.created_at) %> ago by <%= User.find(answer.user_id).name %>.
+      Last answered <%= time_ago_in_words(answer.created_at) %> ago.
     </span>
   </td>
   <% if current_user?(answer.user) %>

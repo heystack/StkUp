@@ -3,7 +3,7 @@ class InterestsController < ApplicationController
   before_filter :admin_user,   :only => :destroy
     
   def index
-    @title = "Stack Categories (Interests)"
+    @title = "Stack Categories"
     @interests = Interest.paginate(:page => params[:page])
   end
 

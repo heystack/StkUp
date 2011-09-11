@@ -206,6 +206,12 @@ span.interested_in_form {
   vertical-align: top;
 }
 
+.interest_list_item {
+  display:block;
+  font-size: 150%;
+  margin-bottom: 10px;
+}
+
 /* User show page */
 
 table.interests {
@@ -414,6 +420,8 @@ div.chart_div {
 .stack_question_plain {
   margin-left: auto;
   margin-right: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
   display: block;
   text-align: center;
   width: 450px;
@@ -442,3 +450,15 @@ input.stack_me_up_button {
   font-weight: bold;
   padding: 20px;
 }
+
+.qa_links {
+  display: block;
+  margin-bottom: 20px;
+}
+
+/* About Us */
+
+div.about_desc {
+  margin-top: 20px;
+}
+

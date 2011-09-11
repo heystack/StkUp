@@ -1,4 +1,4 @@
-<% @user = User.find_by_id(stack.created_by + 1) %>
+<% @user = User.find_by_id(stack.created_by) %>
 <% @stack = stack %>
 <% @answers = stack.answers %>
 <% @my_answers = @answers.find_all_by_user_id(current_user) %>
@@ -6,7 +6,7 @@
 <%  @my_last_choice = Choice.find(@my_answers.last.choice_id) %>
 <% end %>
 <% @grouped_answers = nil %>
-<% if @answers.count > 0 %>
+<% if @my_answers.count > 0 %>
 <%   @grouped_answers_with_id = current_user.grouped_answers(stack.id) %>
 <%   @grouped_answers = Array.new %>
 <%   @grouped_answers_with_id.map { |a| @grouped_answers << [Choice.find_by_id(a[0].to_i).choice_text, a[1]] } %>

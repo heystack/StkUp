@@ -34,7 +34,21 @@ class UsersController < ApplicationController
       if @user.save
         sign_in @user
         flash[:success] = "Welcome to StkUp!"
-        redirect_to @user
+        # Tell the UserMailer to send a welcome Email after save
+        UserMailer.welcome_email(@user).deliver
+        if session[:answer]
+          # User just signed up after answering a stack
+          @answer  = current_user.answers.build(session[:answer])
+          session[:answer] = nil
+          if @answer.save
+            redirect_to stack_path(@answer.stack_id)
+          else
+            @feed_items = []
+            render 'pages/home'
+          end          
+        else
+          redirect_to @user
+        end
       else
         @title = "Sign up"
         render 'new'
@@ -45,8 +59,6 @@ class UsersController < ApplicationController
   def edit
     @title = "Edit user"
     @user_interests = @user.user_interests
-    # Tell the UserMailer to send a welcome Email after save
-    # UserMailer.welcome_email(@user).deliver
   end
   
   def update

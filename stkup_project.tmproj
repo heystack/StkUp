@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>currentDocument</key>
-	<string>scratchpad.txt</string>
+	<string>app/controllers/users_controller.rb</string>
 	<key>documents</key>
 	<array>
 		<dict>
@@ -21,42 +21,114 @@
 	<integer>289</integer>
 	<key>metaData</key>
 	<dict>
-		<key>app/controllers/interests_controller.rb</key>
+		<key>app/controllers/answers_controller.rb</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>11</integer>
+				<integer>54</integer>
 				<key>line</key>
-				<integer>12</integer>
+				<integer>17</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
 		</dict>
-		<key>app/views/interests/show.html.erb</key>
+		<key>app/controllers/sessions_controller.rb</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>8</integer>
+				<integer>0</integer>
 				<key>line</key>
-				<integer>7</integer>
+				<integer>0</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
 		</dict>
-		<key>app/views/stacks/_stack.html.erb</key>
+		<key>app/controllers/users_controller.rb</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>2</integer>
+				<integer>51</integer>
 				<key>line</key>
-				<integer>20</integer>
+				<integer>19</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>18</integer>
+		</dict>
+		<key>app/views/answers/_answer_form.html.erb</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>58</integer>
+				<key>line</key>
+				<integer>26</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
+		<key>app/views/pages/home.html.erb</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>5</integer>
+				<key>line</key>
+				<integer>21</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
+		<key>app/views/sessions/new.html.erb</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>0</integer>
+				<key>line</key>
+				<integer>23</integer>
+			</dict>
+			<key>columnSelection</key>
+			<false/>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+			<key>selectFrom</key>
+			<dict>
+				<key>column</key>
+				<integer>0</integer>
+				<key>line</key>
+				<integer>22</integer>
+			</dict>
+			<key>selectTo</key>
+			<dict>
+				<key>column</key>
+				<integer>0</integer>
+				<key>line</key>
+				<integer>23</integer>
+			</dict>
+		</dict>
+		<key>app/views/users/new.html.erb</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>52</integer>
+				<key>line</key>
+				<integer>9</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -68,28 +140,14 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>29</integer>
+				<integer>25</integer>
 				<key>line</key>
-				<integer>12</integer>
+				<integer>28</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>9</integer>
-		</dict>
-		<key>scratchpad.txt</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>0</integer>
-				<key>line</key>
-				<integer>110</integer>
-			</dict>
-			<key>firstVisibleColumn</key>
 			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>74</integer>
 		</dict>
 		<key>spec/controllers/interest_controllers_spec.rb</key>
 		<dict>
@@ -109,11 +167,13 @@
 	<key>openDocuments</key>
 	<array>
 		<string>config/routes.rb</string>
-		<string>spec/controllers/interest_controllers_spec.rb</string>
-		<string>app/controllers/interests_controller.rb</string>
-		<string>app/views/interests/show.html.erb</string>
-		<string>app/views/stacks/_stack.html.erb</string>
-		<string>scratchpad.txt</string>
+		<string>app/views/pages/home.html.erb</string>
+		<string>app/controllers/answers_controller.rb</string>
+		<string>app/views/answers/_answer_form.html.erb</string>
+		<string>app/controllers/sessions_controller.rb</string>
+		<string>app/views/sessions/new.html.erb</string>
+		<string>app/views/users/new.html.erb</string>
+		<string>app/controllers/users_controller.rb</string>
 	</array>
 	<key>showFileHierarchyDrawer</key>
 	<true/>

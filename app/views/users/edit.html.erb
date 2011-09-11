@@ -15,8 +15,10 @@
     </td>
     <td class="sidebar round">
       <%= render 'shared/user_info' %>
+	  <% if !@user_interests.empty? %>
 	  <strong>Following:</strong>
 	  <%= render @user_interests %>
+	  <% end %>
     </td>
   </tr>
 </table>

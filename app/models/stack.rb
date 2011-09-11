@@ -11,5 +11,9 @@ class Stack < ActiveRecord::Base
   validates :question,           :presence => true
   validates :choice_picker_type, :presence => true
   validates :created_by,         :presence => true
-  
+
+  def created_by?(user)
+    user == User.find_by_id(self.created_by)
+  end
+
 end
