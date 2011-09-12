@@ -5,7 +5,7 @@
         <%= gravatar_for @user %>
         <%= @user.name %>
       </h1>
-      <% if @user.answers.empty? %>
+      <% if @answers.empty? %>
 		<% if Interest.count == 0 %>
       	  <br/><h3>Wow! No Stacks!<br/>Do you want to <%= link_to "create the first Stack Category?", new_interest_path %></h3>
 		<% else %>
@@ -19,9 +19,14 @@
 	      <%= render @user_interests %>
 	    <% end %>
       <% else %>
-        <table class="answers" summary="User answers">
-          <%= render @answers, :with_question => "t" %>
-        </table>
+		<table class="answers" summary="Answers">
+		<% if @answers.empty? %>
+		  <tr><td span=2>No Answers.</td></tr>
+		<% else %>
+		  <tr><td span=2>Answers</td></tr>
+		  <%= render @answers, :with_question => nil %>
+		<% end %>
+		</table>
         <%= will_paginate @answers %>
       <% end %>
     </td>
