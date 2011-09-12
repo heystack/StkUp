@@ -451,6 +451,15 @@ input.stack_me_up_button {
   padding: 20px;
 }
 
+h3.qa {
+  border-top-style:none;
+  border-right-style:none;
+  border-bottom-style:dotted;
+  border-left-style:none;
+  border-color:black;
+  margin-bottom: 10px;
+}
+
 .qa_links {
   display: block;
   margin-bottom: 20px;

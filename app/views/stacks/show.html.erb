@@ -13,11 +13,12 @@
 <%= render 'answers/answer_form' %>
 <% end %>
 
-<h3>Relevant Q&A articles</h3>
+<h3 class="qa">Relevant Q&A articles</h3>
+<hr>
 <span class="qa_links">
-<a href="http://parenting.stackexchange.com/questions/1925/how-can-we-discipline-a-strong-willed-misbehaving-5-year-old">How can we discipline a strong-willed misbehaving 5-year-old?.</a><br/>
-<a href="http://parenting.stackexchange.com/questions/231/what-factors-should-you-consider-when-deciding-how-much-to-pay-a-babysitter">Factors to consider when deciding how much to pay a babysitter.</a><br/>
-<a href="http://parenting.stackexchange.com/questions/201/what-can-i-do-to-encourage-my-12-year-old-son-to-enjoy-productive-activities">Productive activities for a 12-year-old young man.</a><br/>
+<a href="http://parenting.stackexchange.com/questions/1925/how-can-we-discipline-a-strong-willed-misbehaving-5-year-old"><img src="http://alwayson.goingon.com/files/imagecache/ao_story_image_inside/story_image/QuoraLogo.gif" height=15px> How can we discipline a strong-willed misbehaving 5-year-old?</a><br/>
+<a href="http://parenting.stackexchange.com/questions/231/what-factors-should-you-consider-when-deciding-how-much-to-pay-a-babysitter"><img src="http://upload.wikimedia.org/wikipedia/en/6/6f/Stack_Exchange_Logo.png" height=15px> Factors to consider when deciding how much to pay a babysitter.</a><br/>
+<a href="http://parenting.stackexchange.com/questions/201/what-can-i-do-to-encourage-my-12-year-old-son-to-enjoy-productive-activities"><img src="http://startupmeme.com/wp-content/uploads/2007/03/yahooanswers-logo.JPG" height=15px> Productive activities for a 12-year-old young man.</a><br/>
 </span>
 
 <span class="created_by"><em>Created by:</em> <%= gravatar_for @stack_creator, :size => 15 %> <%= link_to @stack_creator.name, @stack_creator %></span><br/><br/>
@@ -48,7 +49,7 @@
 </table>
 
 <h2>Send Stack</h2>
-<% form_tag "/send_stack_form" do -%>
+<% form_tag "/send_stack_form" do %>
 <%= hidden_field :stack_id, :value => @stack.id %>
 <table>
 <tr>
@@ -62,6 +63,6 @@
 </table>
 
 <input type="submit" value="Send Stack" class="primary" />
-<% end -%>
+<% end %>
 
 <% end %>
