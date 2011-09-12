@@ -17,10 +17,12 @@ class UsersController < ApplicationController
       if @answer.save
         redirect_to stack_path(@answer.stack_id)
       else
-        @answers = @user.answers.paginate(:page => params[:page])
-        @user_interests = @user.user_interests
-        @title = @user.name
+        render 'pages/home'
       end
+    else
+      @answers = @user.answers.paginate(:page => params[:page])
+      @user_interests = @user.user_interests
+      @title = @user.name
     end
   end
 
