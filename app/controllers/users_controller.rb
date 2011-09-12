@@ -10,9 +10,18 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @answers = @user.answers.paginate(:page => params[:page])
-    @user_interests = @user.user_interests
-    @title = @user.name
+    if session[:answer]
+      # User just signed in after answering a stack
+      @answer  = current_user.answers.build(session[:answer])
+      session[:answer] = nil
+      if @answer.save
+        redirect_to stack_path(@answer.stack_id)
+      else
+        @answers = @user.answers.paginate(:page => params[:page])
+        @user_interests = @user.user_interests
+        @title = @user.name
+      end
+    end
   end
 
   def new
