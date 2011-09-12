@@ -1,5 +1,5 @@
 class StacksController < ApplicationController
-  before_filter :authenticate, :except => [:show, :new, :create]
+  before_filter :authenticate, :except => [:new, :create]
   before_filter :admin_user,   :only => :destroy
     
   def index
