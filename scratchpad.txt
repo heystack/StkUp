@@ -161,3 +161,33 @@ DAILY STACK EMAIL
 	
   </body>
 </html>
+
+
+<form accept-charset="UTF-8" action="http://stkup-alpha.heroku.com/answers" class="new_answer" id="new_answer" method="post" target="_blank">
+	<br> 
+	<div style="margin-bottom:1.5em;zoom:1"><label style="display:block;font-weight:bold">How much do you pay your babysitter?
+	</label><br/> 
+		    <input id="answer_stack_id" name="answer[stack_id]" type="hidden" value="<%= @stack.id %>" />
+		    <select id="answer_choice_id" name="answer[choice_id]">
+			<option value="3">More than $15</option>
+			<option value="2">$10-$15</option>
+			<option value="1">Less than $10</option></select>
+		    dollars per hour
+
+</div>
+	<br> 
+	<div><div style="margin-bottom:1.5em;zoom:1"> 
+		<input style="width: 190px;color: red;background: #e9e9e9;font-size: 125%;font-weight: bold;padding-left: 10px;padding-right: 10px;" type="submit" name="submit" value="Stack Me Up">
+		<!-- <input type="submit" name="submit" value="Stack Me Up"> -->
+
+	</div></div></form> 
+
+In stk_mailer_helper.rb:
+  private
+
+    def protect_against_forgery?
+      false
+    end
+
+In stacks_controller.rb:
+skip_before_filter :verify_authenticity_token, :only => [:send_stack_form]

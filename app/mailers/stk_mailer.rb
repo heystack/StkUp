@@ -3,13 +3,17 @@ class StkMailer < ActionMailer::Base
 
   def welcome_email(user)
     @user = user
-    @url  = "http://www.stkup.com/login"
+    @url  = "http://stkup-alpha.heroku.com/signin"
     mail(:to => user.email, :subject => "Welcome to StkUp!")
   end
 
-  def send_stack_test(contact)
+  def send_stack_test(contact, stack)
     @contact = contact
-    @answer = Answer.new
+    @stack = stack
+    @choices = @stack.choices
+    @answers = @stack.answers
+    @answer = @stack.answers.new
     mail(:to => contact[:email], :subject => "Daily Stack!")
   end
+
 end

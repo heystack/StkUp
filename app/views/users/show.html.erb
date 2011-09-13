@@ -24,7 +24,7 @@
 		  <tr><td span=2>No Answers.</td></tr>
 		<% else %>
 		  <tr><td span=2>Answers</td></tr>
-		  <%= render @answers, :with_question => nil %>
+		  <%= render @answers, :with_question => :true %>
 		<% end %>
 		</table>
         <%= will_paginate @answers %>
@@ -32,3 +32,6 @@
     </td>
   </tr>
 </table>
+
+<br/>
+session.inspect = <%= session.inspect %><br/>

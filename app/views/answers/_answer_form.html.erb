@@ -1,7 +1,5 @@
-<%= form_for @answer do |f| %>
-  <%= render 'shared/error_messages', :object => f.object %>
- <% if @stack.id == 1%> 
- <div class="mad-libs">
+  <% if @stack.id == 1 && madlibs == "true" %> 
+  <div class="mad-libs">
 	<table>
 	  <tr>
 	    <td style="vertical-align:top"><div class="begin-quote">&#8220;</div></td>
@@ -16,16 +14,20 @@
 	    <td style="vertical-align:bottom"><div class="end-quote">&#8221;</div></td>
 	  </tr>
 	</table>
+	<br/>
+	<!-- This submit button needs to be in the div to be styled properly -->
     <%= f.submit "Stack Me Up", :class => "submit_button round" %>
   </div>
   <% else %>
     <div class="stack_question_plain round">
 	<%= @stack.question %>
+	<br/>
+	<br/>
 	<%= f.hidden_field :stack_id, :value => @stack.id %>
 	<% @cp = Array.new %>
 	<% @choices.map { |c| @cp << [c.choice_text, c.id] } %>
 	<%= f.select :choice_id, @cp, {}, {:class => "form_select"} %>
     </div>
+	<br/>
     <%= f.submit "Stack Me Up", :class => "stack_me_up_button round" %>
   <% end %>
-<% end %>

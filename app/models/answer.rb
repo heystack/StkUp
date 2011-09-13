@@ -14,5 +14,5 @@ class Answer < ActiveRecord::Base
   def total_for(choice_id)
     where("choice_id = ?", choice_id).count(:choice_id)
   end
-  
+
 end

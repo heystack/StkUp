@@ -1,6 +1,7 @@
 class AnswersController < ApplicationController
-  # Removed before_filter for creating new answers upon user signup
+  # Removed before_filter :create for creating new answers upon user signup
   # before_filter :authenticate, :only => [:create, :destroy]
+  before_filter :authenticate, :only => [:destroy]
   before_filter :authorized_user, :only => :destroy
   
   def create
@@ -15,6 +16,7 @@ class AnswersController < ApplicationController
       end
     else
       session[:answer] = params[:answer]
+      session[:debug2] = "AnswersController::create"
       redirect_to signup_path      
     end
   end

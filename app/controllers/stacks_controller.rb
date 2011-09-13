@@ -1,7 +1,7 @@
 class StacksController < ApplicationController
   before_filter :authenticate, :except => [:new, :create]
   before_filter :admin_user,   :only => :destroy
-    
+
   def index
     @title = "Stacks"
     @stacks = Stack.paginate(:page => params[:page])
@@ -72,11 +72,9 @@ class StacksController < ApplicationController
   end
 
   def send_stack_form
-    # @stack = Stack.find(params[:stack_id])
-    @stack = Stack.find(1)
-    @answer = @stack.answers.new
+    @stack = Stack.find(params[:contact][:stack_id])
     @contact = params[:contact]
-    StkMailer.send_stack_test(@contact).deliver
+    StkMailer.send_stack_test(@contact, @stack).deliver
     flash[:success] = "Stack sent to #{@contact[:email]}."
     redirect_to stack_path(@stack)
   end

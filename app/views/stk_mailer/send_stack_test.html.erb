@@ -47,27 +47,19 @@ your daily stack
 <td valign="top" bgcolor="#FFFFFF" style="padding-right:20px"> 
 <table width="350" border="0" cellpadding="0" cellspacing="0"> 
 <tr> 
-<td align="left" style="font-family:Helvetica, Arial, sans-serif;font-size:18px;font-weight:bold;color:#666666;padding-top:10px;padding-bottom:10px">Paying the Babysitter
+<td align="left" style="font-family:Helvetica, Arial, sans-serif;font-size:18px;font-weight:bold;color:#666666;padding-top:10px;padding-bottom:10px">Your Daily Stack
 </td> 
 </tr> 
 <tr> 
 <td style="color:#666666;font-size:12px;font-family:Helvetica, Arial, sans-serif;line-height:18px;padding-top:10px;padding-bottom:10px"> 
-<form accept-charset="UTF-8" action="http://stkup-alpha.heroku.com/answers" class="new_answer" id="new_answer" method="post" target="_blank">
-	<br> 
-	<div style="margin-bottom:1.5em;zoom:1"><label style="display:block;font-weight:bold">How much do you pay your babysitter?
-	</label><br/> 
-		    <input id="answer_stack_id" name="answer[stack_id]" type="hidden" value="1" />
-		    <select id="answer_choice_id" name="answer[choice_id]"><option value="3">More than $15</option>
-	<option value="2">$10-$15</option>
-	<option value="1">Less than $10</option></select>
-		    dollars per hour
 
-</div>
-	<br> 
-	<div><div style="margin-bottom:1.5em;zoom:1"> 
-		<input style="width: 190px;color: red;background: #e9e9e9;font-size: 125%;font-weight: bold;padding-left: 10px;padding-right: 10px;" type="submit" name="submit" value="Stack Me Up">
-		<!-- <input type="submit" name="submit" value="Stack Me Up"> -->
-	</div></div></form> 
+	<% if @stack && @choices %>
+	<%= form_for @answer do |f| %>
+	  <%= render :partial => 'answers/answer_form', :locals => { :f => f, :madlibs => "false" } %>
+	<% end %>
+	<% end %>
+
+
 </td> 
 </tr> 
 </table> 
