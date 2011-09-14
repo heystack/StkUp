@@ -2,7 +2,10 @@ class UsersController < ApplicationController
   before_filter :authenticate, :except => [:show, :new, :create]
   before_filter :correct_user, :only => [:edit, :update]
   before_filter :admin_user,   :only => :destroy
-    
+
+  # Required to prevent session from resetting, due to use of 'def protect_from_forgery? false' in stk_mailer_helper 
+  skip_before_filter :verify_authenticity_token
+
   def index
     @title = "All users"
     @users = User.paginate(:page => params[:page])
@@ -37,38 +40,30 @@ class UsersController < ApplicationController
   end
 
   def create
-    session[:debug] = "1"
     if signed_in?
         flash[:notice] = "You must first sign out in order to create a new user."
         redirect_to root_path
     else
-      session[:debug] = "2"
       @user = User.new(params[:user])
       if @user.save
-        session[:debug] = "3"
         sign_in @user
         flash[:success] = "Welcome to StkUp!"
         # Tell the UserMailer to send a welcome Email after save
         UserMailer.welcome_email(@user).deliver
         if session[:answer]
-          session[:debug] = "4"
           # User just signed up after answering a stack
           @answer  = current_user.answers.build(session[:answer])
           session[:answer] = nil
           if @answer.save
-            session[:debug] = "5"
             redirect_to stack_path(@answer.stack_id)
           else
-            session[:debug] = "6"
             @feed_items = []
             render 'pages/home'
           end          
         else
-          session[:debug] = "7"
           redirect_to @user
         end
       else
-        session[:debug] = "8"
         @title = "Sign up"
         render 'new'
       end

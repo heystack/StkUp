@@ -16,7 +16,6 @@ class AnswersController < ApplicationController
       end
     else
       session[:answer] = params[:answer]
-      session[:debug2] = "AnswersController::create"
       redirect_to signup_path      
     end
   end
