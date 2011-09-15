@@ -1,10 +1,19 @@
-<div class="refresh_stack">
+<!-- <div class="refresh_stack">
 <a href="/refresh_stack">
 	<img src="images/refresh_lite.png" height="25" title="Show a New Stack"
 		 onmouseover="this.src='images/refresh.png';" 
 	     onmouseout="this.src='images/refresh_lite.png';" /></a>
-</div>
+</div> -->
+
+<div class="sod_title_block">
 <h1 class="sod_title">Stack of the Day</h1>
+<div class="refresh_stack2">
+<a href="/refresh_stack">
+	<img src="images/refresh_lite.png" height="15" title="Show a New Stack"
+		 onmouseover="this.src='images/refresh.png';" 
+	     onmouseout="this.src='images/refresh_lite.png';" /></a>
+</div>
+</div>
 <h2 class="sod_subtitle"><%= @interest.interest_desc %></h1>
 
 <% if signed_in? %>
