@@ -7,6 +7,10 @@ class AnswersController < ApplicationController
   def create
     if signed_in?
       @answer  = current_user.answers.build(params[:answer])
+      # Follow the category
+      @stack = Stack.find(params[:answer][:stack_id])
+      @interest = @stack.interest
+      current_user.interested_in!(@interest)
       if @answer.save
         flash[:success] = "Answer created!"
         redirect_to stack_path(@answer.stack_id)

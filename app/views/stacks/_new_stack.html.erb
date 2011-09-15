@@ -3,10 +3,12 @@
   <%= f.hidden_field :created_by, :value => current_user.id %><br />
   <%= f.label "Stack Question" %><br />
   <%= f.text_field :question %><br />
-  <!-- <%= f.label "Stack Question Subtext" %><br />
-  <%= f.text_field :question_subtext %><br /> -->
-  <!-- <%= f.label "Stack Choice Picker Type" %><br />
-  <%= f.text_field :choice_picker_type %><br /> -->
+  <div class="disabled_form_field">
+  <%= f.label "Stack Question Subtext", :class => "disabled_form_field" %><br />
+  <%= f.text_field :question_subtext, :value => "Subtext for stack here", :disabled => true %><br />
+  <%= f.label "Stack Choice Picker Type" %><br />
+  <%= f.text_field :choice_picker_type, :value => "Pie", :disabled => true %><br />
+  </div>
   <%= f.label "Stack Chart Type" %><br />
   <%= f.select :chart_type, [['Pie', 1]] %><br />
 </div>

@@ -1,23 +1,27 @@
+<div class="refresh_stack">
+<a href="/refresh_stack">
+	<img src="images/refresh_lite.png" height="25" title="Show a New Stack"
+		 onmouseover="this.src='images/refresh.png';" 
+	     onmouseout="this.src='images/refresh_lite.png';" /></a>
+</div>
+<h1 class="sod_title">Stack of the Day</h1>
+<h2 class="sod_subtitle"><%= @interest.interest_desc %></h1>
+
 <% if signed_in? %>
-  <table class="front" summary="For signed-in users">
-    <tr>
-      <td class="main">
-        <h1 class="question">Stack of the Day</h1>
 		<%= form_for @answer do |f| %>
 		  <%= render 'shared/error_messages', :object => f.object %>
 		  <%= render :partial => 'answers/answer_form', :locals => { :f => f, :madlibs => "true" } %>
 		<% end %>
-        <% # render 'shared/feed' %>
-      </td>
-      <td class="sidebar round">
-        <%= render 'shared/user_info' %>
-        <%= render 'shared/stats' %>
-      </td>
-    </tr>
+
+  <hr>
+  <table class="stacks" summary="Stack Categories">
+	<% if @my_stacks.empty? %>
+	  <tr><td span=2>No Stacks.</td></tr>
+	<% else %>
+	  <tr><td span=2><h1>My Stacks</h1></td></tr>
+	  <%= render @my_stacks %>
+	<% end %>
   </table>
-  <% if @grouped_answers %>
-	<%= render 'shared/stkchart_pie' %>
-  <% end %>
 
 <% else %>
   <p>

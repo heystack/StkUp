@@ -1,4 +1,5 @@
 <% with_question &&= "t" %>
+<% answered &&= "t" %>
 <tr>
   <td class="answer">
 	<% if with_question %>
@@ -6,7 +7,11 @@
 	<% end %>
   	<div class="choice"><%= Choice.find(answer.choice_id).choice_text %></div>
     <div class="timestamp">
+	  <% if answered %>
+      Answered <%= time_ago_in_words(answer.created_at) %> ago.
+	  <% else %>
       Last answered <%= time_ago_in_words(answer.created_at) %> ago.
+	  <% end %>
     </span>
   </td>
   <% if current_user?(answer.user) %>

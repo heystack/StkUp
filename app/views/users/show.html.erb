@@ -24,7 +24,7 @@
 		  <tr><td span=2>No Answers.</td></tr>
 		<% else %>
 		  <tr><td span=2>Answers</td></tr>
-		  <%= render @answers, :with_question => :true %>
+		  <%= render @answers, :with_question => :true, :answered => :true %>
 		<% end %>
 		</table>
         <%= will_paginate @answers %>

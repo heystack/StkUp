@@ -16,4 +16,9 @@ class Stack < ActiveRecord::Base
     user == User.find_by_id(self.created_by)
   end
 
+  def self.random
+    ids = connection.select_all("SELECT id FROM stacks")
+    find(ids[rand(ids.length)]["id"].to_i) unless ids.blank?
+  end
+
 end
