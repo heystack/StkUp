@@ -14,7 +14,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     if session[:answer]
-      # User just signed in after answering a stack
+      # User just signed in after answering a stack - no longer used
       @answer  = current_user.answers.build(session[:answer])
       session[:answer] = nil
       if @answer.save
