@@ -1,0 +1,12 @@
+<%= render 'shared/error_messages', :object => f.object %>
+<div class="field">
+  <%= f.label "Target Website" %><br />
+  <%= f.select :qa_target,
+	[['Quora', "http://alwayson.goingon.com/files/imagecache/ao_story_image_inside/story_image/QuoraLogo.gif"],
+	['StackExchange', "http://upload.wikimedia.org/wikipedia/en/6/6f/Stack_Exchange_Logo.png"],
+	['YahooAnswers', "http://startupmeme.com/wp-content/uploads/2007/03/yahooanswers-logo.JPG"], ] %><br />
+  <%= f.label "Description" %><br />
+  <%= f.text_field :qa_desc, :class => "qa_text_field" %><br />
+  <%= f.label "Website Link" %><br />
+  <%= f.text_field :qa_link, :class => "qa_text_field" %><br />
+</div>

@@ -1,0 +1,9 @@
+<span class="qa_link">
+	<img src="<%= qa.qa_target %>" height=15px> 
+	<%= link_to qa.qa_desc, qa.qa_link, { :target => "blank" } %>
+  <% if current_user.admin? || @stack.created_by?(current_user) %>
+  | <%= link_to "delete", qa, :method => :delete, :confirm => "You sure?",
+                              :title => "Delete #{qa.qa_desc}" %>
+  <% end %>
+</span>
+<br/>

@@ -1,0 +1,8 @@
+<h1><%= @title %></h1>
+
+<%= form_for(@qa, :url => stack_qas_path) do |f| %>
+  <%= render 'new_qa', :f => f %>
+  <div class="actions">
+    <%= f.submit "Add Q&A" %>
+  </div>
+<% end %>
