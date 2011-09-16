@@ -1,10 +1,3 @@
-<div class="edit_delete">
-  <% if current_user.admin? %>
-    <%= link_to "edit", edit_interest_path(interest) %> | 
-    <%= link_to "delete", interest, :method => :delete, :confirm => "You sure?",
-                                	:title => "Delete #{interest.interest_desc}" %>
-  <% end %>
-</div>
 <div class="interest_list_icon"><img src="<%= interest.icon %>" width=35></div>
 <div class="interest_list_header">
 	<div class="interest_list_desc"><%= link_to interest.interest_desc, interest %></div>
@@ -15,17 +8,24 @@
 	<% end %>
 	</span>
 </div>
+<div class="edit_delete">
+  <% if current_user.admin? %>
+    <%= link_to "edit", edit_interest_path(interest) %> | 
+    <%= link_to "delete", interest, :method => :delete, :confirm => "You sure?",
+                                	:title => "Delete #{interest.interest_desc}" %>
+  <% end %>
+</div>
 <div class="interest_list_item">
-<span class="interest_list_item_count"><%= interest.stacks.count %></span>
-<span class="interest_list_item_desc">stacks</span>
+<span class="interest_list_item_count">
+<%= Answer.count(:conditions => ['stack_id in (select id from stacks where interest_id=?)', interest.id]) %></span>
+<span class="interest_list_item_desc">answers</span>
 </div>
 <div class="interest_list_item">
 <span class="interest_list_item_count"><%= interest.interested_users.count %></span>
 <span class="interest_list_item_desc">followers</span>
 </div>
 <div class="interest_list_item">
-<span class="interest_list_item_count">
-<%= Answer.count(:conditions => ['stack_id in (select id from stacks where interest_id=?)', interest.id]) %></span>
-<span class="interest_list_item_desc">answers</span>
+<span class="interest_list_item_count"><%= interest.stacks.count %></span>
+<span class="interest_list_item_desc">stacks</span>
 </div>
 <hr>
