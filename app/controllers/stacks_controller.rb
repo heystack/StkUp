@@ -12,6 +12,7 @@ class StacksController < ApplicationController
     @interest = Interest.find(@stack.interest_id)
     @title = @stack.question
     @choices = @stack.choices
+    @qas = @stack.qas
     @answers = @stack.answers
     @answer = @stack.answers.new
     @my_answers = @answers.find_all_by_user_id(current_user)

@@ -6,10 +6,10 @@ class Stack < ActiveRecord::Base
   belongs_to :interest
   has_many   :choices
   has_many   :answers
+  has_many   :qas
   
   validates :interest_id,        :presence => true
   validates :question,           :presence => true
-  validates :choice_picker_type, :presence => true
   validates :created_by,         :presence => true
 
   def created_by?(user)

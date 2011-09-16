@@ -2,6 +2,7 @@ class CreateInterests < ActiveRecord::Migration
   def self.up
     create_table :interests do |t|
       t.string :interest_desc
+      t.string :icon
 
       t.timestamps
     end

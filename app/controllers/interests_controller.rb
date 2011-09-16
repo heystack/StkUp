@@ -13,6 +13,12 @@ class InterestsController < ApplicationController
     @stacks = @interest.stacks
   end
 
+  def edit
+    @interest = Interest.find(params[:id])
+    @title = @interest.interest_desc
+    @stacks = @interest.stacks
+  end
+
   def new
     if signed_in?
       @interest = Interest.new
@@ -36,6 +42,17 @@ class InterestsController < ApplicationController
     else
       flash[:notice] = "You must first sign in order to create a new Stack Category."
       redirect_to root_path
+    end
+  end
+
+  def update
+    @interest = Interest.find(params[:id])
+    if @interest.update_attributes(params[:interest])
+      flash[:success] = "Stack Category Updated!"
+      redirect_to interest_path(@interest.id)
+    else
+      @title = "Edit Stack Category"
+      render 'edit'
     end
   end
 

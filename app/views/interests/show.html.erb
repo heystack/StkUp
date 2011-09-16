@@ -1,20 +1,17 @@
-<table class="breadcrumbs" summary="Stack Categories">
-  <tr><td span=2><%= link_to "Stacks", interests_path %> >
-				 <%= @title %>
-  </td></tr>
-</table>
+<div class="breadcrumbs" summary="Stack Categories">
+  <%= link_to "Stacks", interests_path %> > <%= @title %>
+</div>
+
+<div class="interest_show_header">
+<div class="interest_show_icon"><img src="<%= @interest.icon %>" width=35></div>
+<div class="interest_show_title"><%= @title %></div>
+<div class="interest_show_follow"><%= render 'interested_in_form' if signed_in? %></div>
+<div class="interest_show_add_stack">
+      <%= link_to "Add Stack", new_interest_stack_path(@interest) %>
+</div>
+</div>
 
 <table class="stacks" summary="Stack Categories">
-  <tr>
-    <td class="main">
-	  <h1><%= @title %></h1>
-      <%= render 'interested_in_form' if signed_in? %>
-    </td>
-    <td class="add_stack">
-      <%= link_to "Add Stack", new_interest_stack_path(@interest) %><br />
-    </td>
-  </tr>
-
 <% if @interest.stacks.empty? %>
   <tr><td span=2>No Stacks.</td></tr>
 <% else %>

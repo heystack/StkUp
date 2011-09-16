@@ -191,3 +191,12 @@ In stk_mailer_helper.rb:
 
 In stacks_controller.rb:
 skip_before_filter :verify_authenticity_token, :only => [:send_stack_form]
+
+Q&A LINKS:
+<h3 class="qa">Relevant Q&A articles</h3>
+<hr>
+<span class="qa_links">
+<a href="http://parenting.stackexchange.com/questions/1925/how-can-we-discipline-a-strong-willed-misbehaving-5-year-old"><img src="http://alwayson.goingon.com/files/imagecache/ao_story_image_inside/story_image/QuoraLogo.gif" height=15px> How can we discipline a strong-willed misbehaving 5-year-old?</a><br/>
+<a href="http://parenting.stackexchange.com/questions/231/what-factors-should-you-consider-when-deciding-how-much-to-pay-a-babysitter"><img src="http://upload.wikimedia.org/wikipedia/en/6/6f/Stack_Exchange_Logo.png" height=15px> Factors to consider when deciding how much to pay a babysitter.</a><br/>
+<a href="http://parenting.stackexchange.com/questions/201/what-can-i-do-to-encourage-my-12-year-old-son-to-enjoy-productive-activities"><img src="http://startupmeme.com/wp-content/uploads/2007/03/yahooanswers-logo.JPG" height=15px> Productive activities for a 12-year-old young man.</a><br/>
+</span>

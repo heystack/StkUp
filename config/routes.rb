@@ -16,9 +16,11 @@ Stkup::Application.routes.draw do
   resources :user_interests
   resources :stacks do
     resources :choices
+    resources :qas
   end
   resources :stacks
   resources :choices
+  resources :qas
 
   match 'users/:id' => 'users#toggle_admin'
 

@@ -10,7 +10,9 @@ class AnswersController < ApplicationController
       # Follow the category
       @stack = Stack.find(params[:answer][:stack_id])
       @interest = @stack.interest
-      current_user.interested_in!(@interest)
+      if !current_user.interested_in?(@interest)
+        current_user.interested_in!(@interest)
+      end
       if @answer.save
         flash[:success] = "Answer created!"
         redirect_to stack_path(@answer.stack_id)

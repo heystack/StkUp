@@ -19,7 +19,7 @@
 	<span class="created_by"><%= gravatar_for @user, :size => 15 %> <%= link_to @user.name, @user %></span><br/>
     <span class="question"><%= link_to stack.question, stack_path(stack.id) %></span><br/>
 	<span class="question_subtext"><%= stack.question_subtext %></span><br/>
-	<span class="question_answers"><%= pluralize(stack.answers.count, "answer") %></span><br/>
+	<span class="timestamp"><%= pluralize(stack.answers.count, "answer") %>, Last answered <%= time_ago_in_words(@stack.answers.last.created_at) %> ago.</span><br/>
   </td>
   <% unless @user.nil? %>
   <td>

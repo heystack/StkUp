@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110904155448) do
+ActiveRecord::Schema.define(:version => 20110916034008) do
 
   create_table "answers", :force => true do |t|
     t.integer  "user_id"
@@ -36,6 +36,17 @@ ActiveRecord::Schema.define(:version => 20110904155448) do
 
   create_table "interests", :force => true do |t|
     t.string   "interest_desc"
+    t.string   "icon"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "icon"
+  end
+
+  create_table "qas", :force => true do |t|
+    t.integer  "stack_id"
+    t.string   "qa_link"
+    t.string   "qa_desc"
+    t.string   "qa_target"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

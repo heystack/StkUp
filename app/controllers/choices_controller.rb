@@ -20,7 +20,7 @@ class ChoicesController < ApplicationController
       @choice = @stack.choices.new
       @title = "Create a New Choice"
     else
-      flash[:notice] = "You must first sign in order to create a new Stack."
+      flash[:notice] = "You must first sign in order to create a new Choice."
       redirect_to root_path
     end
   end

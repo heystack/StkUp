@@ -1,23 +1,18 @@
+<div class="title"><%= @title %></div>
+<div class="add_category">
+    <%= link_to "Add Category", new_interest_path %><br />
+</div>
+
 <table class="interests" summary="Stack Categories">
   <tr>
-    <td class="main">
-	  <h1><%= @title %></h1>
-    </td>
-    <td class="add_category">
-      <%= link_to "Add Category", new_interest_path %><br />
-    </td>
-  </tr>
-  <tr>
-    <td class="main">
+    <td span=2 class="plain">
       <% unless @interests.empty? %>
+		<div class="interest_list">
 		<%= will_paginate %>
-		<ul class="interests">
 		  <%= render @interests %>
-		</ul>
 		<%= will_paginate %>
+		</div>
       <% end %>
-    </td>
-    <td class="sidebar">
     </td>
   </tr>
 </table>

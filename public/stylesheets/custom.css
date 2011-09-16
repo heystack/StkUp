@@ -219,15 +219,80 @@ span.interested_in_form {
   display: inline;
 }
 
+/* Interest show page */
+
+.breadcrumbs {
+  margin-bottom: 20px;
+}
+
+.title {
+  padding: 10px;
+  margin-bottom: 40px;
+  float: left;
+  font-size: 200%;
+}
+
+.add_category {
+  float: right;
+  vertical-align: middle;
+  text-align: right;
+  background: #fff;
+}
+
+.interest_list {
+  display: block;
+  position: relative;
+  margin-left: 30px;
+}
+
+.interest_show_header {
+  display: block;
+  position: relative;
+  margin-bottom: 100px;
+}
+
+.interest_show_icon {
+  display: block;
+  float: left;
+  margin-top: 0px;
+  margin-right: 10px;	
+}
+
+.interest_show_title {
+  display: block;
+  float: left;
+  margin-top: 10px;
+  font-size: 200%;
+  margin-right: 20px;	
+}
+
+.interest_show_follow {
+  display: block;
+  float: left;
+  margin-top: 5px;
+  margin-right: 20px;	
+}
+
+.interest_show_add_stack {
+  display: block;
+  float: right;
+  vertical-align: top;
+  margin-right: 20px;	
+}
+
+td.stack .created_by {
+  text-align: left;
+  font-size: 75%;
+  margin-bottom: -15px;
+}
+
 .interested_button {
   border: 1px solid #eee;
-  background: #ffc;
+  background: #fff;
   color: #707070;
   font-size: 8pt;
   display: inline;
 }
-
-/* Interest show page */
 
 .question {
   font-size: 1.5em;
@@ -241,10 +306,53 @@ span.interested_in_form {
   vertical-align: top;
 }
 
-.interest_list_item {
+.interests td.plain {
+  background: #fff;
+}
+
+.interest_list_icon {
+  display:block;
+  float: left;
+  margin-right: 10px;
+}
+
+.interest_list_header {
+  display:block;
+  float: left;
+  margin-bottom: 20px;
+  margin-right: 40px;
+}
+
+.interest_list_desc {
   display:block;
   font-size: 150%;
   margin-bottom: 10px;
+}
+
+.interest_list_item {
+  display:block;
+  float: right;
+  margin-right: 50px;
+}
+
+.interest_list_item_count {
+  display:block;
+  font-size: 150%;
+  text-align: center;
+}
+
+.interest_list_item_desc {
+  display:block;
+  font-size: 8pt;
+  color: #666;
+  text-align: center;
+}
+
+.edit_delete {
+  display:block;
+  float: right;
+  font-size: 8pt;
+  margin-right: 20px;
 }
 
 /* User show page */
@@ -265,14 +373,6 @@ table.interests {
   padding: 1em;
   vertical-align: top;
   background: #fff;
-}
-
-.interests td.add_category {
-  width: 30%;
-  padding: 1em;
-  vertical-align: middle;
-  text-align: center;
-  background: #ffc;
 }
 
 /* Errors */
@@ -437,11 +537,22 @@ form.new_answer textarea {
   font-color: #ccc;
 }
 
-/* Stack Display Page */
+/* Stack Show Page */
 
 div.chart_div {
   margin: auto;
   width: 100%;
+}
+
+.created_by {
+  display: block;
+  text-align: right;
+  width: 100%;
+  font-size: 75%;
+}
+
+.qa_text_field {
+  width: 75%;
 }
 
 .choices td.add_choice {

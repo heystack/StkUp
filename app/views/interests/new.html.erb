@@ -1,7 +1,7 @@
 <h1><%= @title %></h1>
 
 <%= form_for(@interest) do |f| %>
-  <%= render 'new_interest', :f => f %>
+  <%= render 'interest_form', :f => f %>
   <div class="actions">
     <%= f.submit "Create Stack Category" %>
   </div>
